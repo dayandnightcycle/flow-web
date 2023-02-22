@@ -1,0 +1,14 @@
+var slbh = "KFQ202209160023"
+var data = {
+    "djsjd":"select SLBH, LCLX, LCMC, SJR, SJSJ, CNSJ, QXDM, TZRXM, TZFS, TZRDH, TZRYDDH, TZRDZYJ, TZRTXDZ, CXMM, SJMC, SJLX, SJSL, YS, SFSYBZ, SFEWSJ, SFBCSJ, ZRKS, ZRR, YXJ, SJBZ, BCSM, FCSLH, FCDJLX, FCHID,ZL from DJ_SJD where SLBH = " + "'" + slbh + "'",
+    "djdjb":"select SZR,DBR,ZSR,JGJC,FZND,ZSH,SSJC,FJ,GYFS,GYFE,SLBH,DJLX,SPDW,SPRQ,BDCZH,GDH,DJRQ,FZJG,FZRQ,ZSLX,ZSXLH,DYCS,QT,LIFECYCLE,SQRQ,SQNR,SQBZ,DLRZGZH,DLJGMC,SPBZ,XGZH,BDCDYH,DJYY,DAMJ,SQZSBS,SQFBCZ from DJ_DJB where (SLBH LIKE " + "'" + slbh + "%') AND '{CZLX}'<>'录入'AND " + "'" + slbh + "' IS NOT NULL AND ROWNUM <2 AND BDCZH IS NOT NULL",
+    "djdjbgs":"select COUNT(0) AS GS from DJ_DJB where (SLBH LIKE " + "'" + slbh + "%') AND '{CZLX}'<>'录入'AND " + "'" + slbh + "' IS NOT NULL AND BDCZH IS NOT NULL",
+    "djtsgl":"select GLBM, SLBH, BDCLX, TSTYBM, BDCDYH, DJZL, GLMS, CSSJ from DJ_TSGL where (SLBH LIKE " + "'" + slbh + "%') AND '{CZLX}'<>'录入'AND " + "'" + slbh + "' IS NOT NULL",
+    "qltdxg":"select SUM(GYTDMJ) AS GYTDMJ,  SUM(DYTDMJ) AS DYTDMJ , MAX(QLLX) AS QLLX from QL_TDXG where (SLBH LIKE " + "'" + slbh + "%') AND '{CZLX}'<>'录入'AND " + "'" + slbh + "' IS NOT NULL",
+    "qlfwxg":"select SUM(JZMJ) AS JZMJ from QL_FWXG where (SLBH LIKE " + "'" + slbh + "%') AND '{CZLX}'<>'录入'AND " + "'" + slbh + "' IS NOT NULL",
+    "ggdamj":"select ITEMVAL,ITEMNAME from DIC_ITEM where DICCODE = (SELECT DICCODE FROM DIC_MAIN WHERE DICNAME = '档案密级' AND ROWNUM < 2) ORDER BY ITEMORDER",
+    "ggssxq":"select ITEMNOTE,ITEMNAME from DIC_ITEM where DICCODE = (SELECT DICCODE FROM DIC_MAIN WHERE DICNAME = '所属辖区' AND ROWNUM<2) ORDER BY ITEMORDER",
+    "ggdafl":"select ITEMNOTE,ITEMNAME from DIC_ITEM where DICCODE = (SELECT DICCODE FROM DIC_MAIN WHERE DICNAME = '档案分类' AND ROWNUM<2) ORDER BY ITEMORDER",
+    "ggdabhqz":"select ITEMVAL,ITEMNAME from DIC_ITEM where DICCODE = (SELECT DICCODE FROM DIC_MAIN WHERE DICNAME = '档案编号前缀'AND ROWNUM<2) ORDER BY ITEMORDER",
+    "ggsqsqlrkz":"select ITEMVAL from DIC_ITEM where DICCODE = (SELECT DICCODE FROM DIC_MAIN WHERE DICNAME = '打印设置' AND ROWNUM < 2) AND ITEMNAME = '申请书权利人控制' AND ROWNUM < 2"
+}

@@ -1,0 +1,2627 @@
+{
+  "widgetList": [
+    {
+      "type": "table",
+      "category": "container",
+      "icon": "table",
+      "rows": [
+        {
+          "cols": [
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [
+                {
+                  "key": 24702,
+                  "type": "grid",
+                  "category": "container",
+                  "icon": "grid",
+                  "cols": [
+                    {
+                      "type": "grid-col",
+                      "category": "container",
+                      "icon": "grid-col",
+                      "internal": true,
+                      "widgetList": [
+                        {
+                          "key": 59596,
+                          "type": "input",
+                          "icon": "text-field",
+                          "formItemFlag": true,
+                          "options": {
+                            "name": "input82097",
+                            "label": "受理编号",
+                            "labelAlign": "",
+                            "type": "text",
+                            "defaultValue": "",
+                            "placeholder": "",
+                            "columnWidth": "200px",
+                            "size": "",
+                            "labelWidth": null,
+                            "labelHidden": false,
+                            "readonly": false,
+                            "disabled": false,
+                            "hidden": false,
+                            "clearable": true,
+                            "showPassword": false,
+                            "required": false,
+                            "requiredHint": "",
+                            "validation": "",
+                            "validationHint": "",
+                            "customClass": [
+                              "form"
+                            ],
+                            "labelIconClass": null,
+                            "labelIconPosition": "rear",
+                            "labelTooltip": null,
+                            "minLength": null,
+                            "maxLength": null,
+                            "showWordLimit": false,
+                            "prefixIcon": "",
+                            "suffixIcon": "",
+                            "appendButton": false,
+                            "appendButtonDisabled": false,
+                            "buttonIcon": "custom-search",
+                            "onCreated": "",
+                            "onMounted": "",
+                            "onInput": "",
+                            "onChange": "",
+                            "onFocus": "",
+                            "onBlur": "",
+                            "onValidate": ""
+                          },
+                          "id": "input82097"
+                        }
+                      ],
+                      "options": {
+                        "name": "gridCol31435",
+                        "hidden": false,
+                        "span": 6,
+                        "offset": 0,
+                        "push": 0,
+                        "pull": 0,
+                        "responsive": false,
+                        "md": 12,
+                        "sm": 12,
+                        "xs": 12,
+                        "customClass": ""
+                      },
+                      "id": "grid-col-31435"
+                    },
+                    {
+                      "type": "grid-col",
+                      "category": "container",
+                      "icon": "grid-col",
+                      "internal": true,
+                      "widgetList": [
+                        {
+                          "key": 59596,
+                          "type": "input",
+                          "icon": "text-field",
+                          "formItemFlag": true,
+                          "options": {
+                            "name": "input39765",
+                            "label": "不动产证号",
+                            "labelAlign": "",
+                            "type": "text",
+                            "defaultValue": "",
+                            "placeholder": "",
+                            "columnWidth": "200px",
+                            "size": "",
+                            "labelWidth": null,
+                            "labelHidden": false,
+                            "readonly": false,
+                            "disabled": false,
+                            "hidden": false,
+                            "clearable": true,
+                            "showPassword": false,
+                            "required": false,
+                            "requiredHint": "",
+                            "validation": "",
+                            "validationHint": "",
+                            "customClass": [
+                              "form"
+                            ],
+                            "labelIconClass": null,
+                            "labelIconPosition": "rear",
+                            "labelTooltip": null,
+                            "minLength": null,
+                            "maxLength": null,
+                            "showWordLimit": false,
+                            "prefixIcon": "",
+                            "suffixIcon": "",
+                            "appendButton": false,
+                            "appendButtonDisabled": false,
+                            "buttonIcon": "custom-search",
+                            "onCreated": "",
+                            "onMounted": "",
+                            "onInput": "",
+                            "onChange": "",
+                            "onFocus": "",
+                            "onBlur": "",
+                            "onValidate": ""
+                          },
+                          "id": "input39765"
+                        }
+                      ],
+                      "options": {
+                        "name": "gridCol97782",
+                        "hidden": false,
+                        "span": 6,
+                        "offset": 0,
+                        "push": 0,
+                        "pull": 0,
+                        "responsive": false,
+                        "md": 12,
+                        "sm": 12,
+                        "xs": 12,
+                        "customClass": []
+                      },
+                      "id": "grid-col-97782"
+                    },
+                    {
+                      "type": "grid-col",
+                      "category": "container",
+                      "icon": "grid-col",
+                      "internal": true,
+                      "widgetList": [
+                        {
+                          "key": 59596,
+                          "type": "input",
+                          "icon": "text-field",
+                          "formItemFlag": true,
+                          "options": {
+                            "name": "input29973",
+                            "label": "不动产单元号",
+                            "labelAlign": "",
+                            "type": "text",
+                            "defaultValue": "",
+                            "placeholder": "",
+                            "columnWidth": "200px",
+                            "size": "",
+                            "labelWidth": null,
+                            "labelHidden": false,
+                            "readonly": false,
+                            "disabled": false,
+                            "hidden": false,
+                            "clearable": true,
+                            "showPassword": false,
+                            "required": false,
+                            "requiredHint": "",
+                            "validation": "",
+                            "validationHint": "",
+                            "customClass": [
+                              "form"
+                            ],
+                            "labelIconClass": null,
+                            "labelIconPosition": "rear",
+                            "labelTooltip": null,
+                            "minLength": null,
+                            "maxLength": null,
+                            "showWordLimit": false,
+                            "prefixIcon": "",
+                            "suffixIcon": "",
+                            "appendButton": false,
+                            "appendButtonDisabled": false,
+                            "buttonIcon": "custom-search",
+                            "onCreated": "",
+                            "onMounted": "",
+                            "onInput": "",
+                            "onChange": "",
+                            "onFocus": "",
+                            "onBlur": "",
+                            "onValidate": ""
+                          },
+                          "id": "input29973"
+                        }
+                      ],
+                      "options": {
+                        "name": "gridCol111401",
+                        "hidden": false,
+                        "span": 6,
+                        "offset": 0,
+                        "push": 0,
+                        "pull": 0,
+                        "responsive": false,
+                        "md": 12,
+                        "sm": 12,
+                        "xs": 12,
+                        "customClass": ""
+                      },
+                      "id": "grid-col-111401"
+                    },
+                    {
+                      "type": "grid-col",
+                      "category": "container",
+                      "icon": "grid-col",
+                      "internal": true,
+                      "widgetList": [],
+                      "options": {
+                        "name": "gridCol44493",
+                        "hidden": false,
+                        "span": 6,
+                        "offset": 0,
+                        "push": 0,
+                        "pull": 0,
+                        "responsive": false,
+                        "md": 12,
+                        "sm": 12,
+                        "xs": 12,
+                        "customClass": ""
+                      },
+                      "id": "grid-col-44493"
+                    }
+                  ],
+                  "options": {
+                    "name": "grid54924",
+                    "hidden": false,
+                    "gutter": 12,
+                    "colHeight": null,
+                    "customClass": ""
+                  },
+                  "id": "grid54924"
+                },
+                {
+                  "type": "grid",
+                  "category": "container",
+                  "icon": "grid",
+                  "cols": [
+                    {
+                      "type": "grid-col",
+                      "category": "container",
+                      "icon": "grid-col",
+                      "internal": true,
+                      "widgetList": [
+                        {
+                          "key": 81699,
+                          "type": "date-range",
+                          "icon": "date-range-field",
+                          "formItemFlag": true,
+                          "options": {
+                            "name": "daterange86470",
+                            "label": "发证日期",
+                            "labelAlign": "label-center-align",
+                            "type": "daterange",
+                            "defaultValue": null,
+                            "startPlaceholder": "",
+                            "endPlaceholder": "",
+                            "columnWidth": "200px",
+                            "size": "",
+                            "autoFullWidth": true,
+                            "labelWidth": null,
+                            "labelHidden": false,
+                            "readonly": false,
+                            "disabled": false,
+                            "hidden": false,
+                            "clearable": true,
+                            "editable": false,
+                            "format": "YYYY-MM-DD",
+                            "valueFormat": "YYYY-MM-DD",
+                            "required": false,
+                            "requiredHint": "",
+                            "validation": "",
+                            "validationHint": "",
+                            "customClass": [
+                              "rq-input"
+                            ],
+                            "labelIconClass": null,
+                            "labelIconPosition": "rear",
+                            "labelTooltip": null,
+                            "onCreated": "",
+                            "onMounted": "",
+                            "onChange": "",
+                            "onFocus": "",
+                            "onBlur": "",
+                            "onValidate": ""
+                          },
+                          "id": "daterange86470"
+                        }
+                      ],
+                      "options": {
+                        "name": "gridCol26160",
+                        "hidden": false,
+                        "span": 6,
+                        "offset": 0,
+                        "push": 0,
+                        "pull": 0,
+                        "responsive": false,
+                        "md": 12,
+                        "sm": 12,
+                        "xs": 12,
+                        "customClass": []
+                      },
+                      "id": "grid-col-26160"
+                    },
+                    {
+                      "type": "grid-col",
+                      "category": "container",
+                      "icon": "grid-col",
+                      "internal": true,
+                      "widgetList": [
+                        {
+                          "key": 59596,
+                          "type": "input",
+                          "icon": "text-field",
+                          "formItemFlag": true,
+                          "options": {
+                            "name": "input65090",
+                            "label": "权利人名称",
+                            "labelAlign": "",
+                            "type": "text",
+                            "defaultValue": "",
+                            "placeholder": "",
+                            "columnWidth": "200px",
+                            "size": "",
+                            "labelWidth": null,
+                            "labelHidden": false,
+                            "readonly": false,
+                            "disabled": false,
+                            "hidden": false,
+                            "clearable": true,
+                            "showPassword": false,
+                            "required": false,
+                            "requiredHint": "",
+                            "validation": "",
+                            "validationHint": "",
+                            "customClass": [
+                              "form"
+                            ],
+                            "labelIconClass": null,
+                            "labelIconPosition": "rear",
+                            "labelTooltip": null,
+                            "minLength": null,
+                            "maxLength": null,
+                            "showWordLimit": false,
+                            "prefixIcon": "",
+                            "suffixIcon": "",
+                            "appendButton": false,
+                            "appendButtonDisabled": false,
+                            "buttonIcon": "custom-search",
+                            "onCreated": "",
+                            "onMounted": "",
+                            "onInput": "",
+                            "onChange": "",
+                            "onFocus": "",
+                            "onBlur": "",
+                            "onValidate": ""
+                          },
+                          "id": "input65090"
+                        }
+                      ],
+                      "options": {
+                        "name": "gridCol11733",
+                        "hidden": false,
+                        "span": 6,
+                        "offset": 0,
+                        "push": 0,
+                        "pull": 0,
+                        "responsive": false,
+                        "md": 12,
+                        "sm": 12,
+                        "xs": 12,
+                        "customClass": ""
+                      },
+                      "id": "grid-col-11733"
+                    },
+                    {
+                      "type": "grid-col",
+                      "category": "container",
+                      "icon": "grid-col",
+                      "internal": true,
+                      "widgetList": [
+                        {
+                          "key": 59596,
+                          "type": "input",
+                          "icon": "text-field",
+                          "formItemFlag": true,
+                          "options": {
+                            "name": "input48077",
+                            "label": "权利人证件号",
+                            "labelAlign": "",
+                            "type": "text",
+                            "defaultValue": "",
+                            "placeholder": "",
+                            "columnWidth": "200px",
+                            "size": "",
+                            "labelWidth": null,
+                            "labelHidden": false,
+                            "readonly": false,
+                            "disabled": false,
+                            "hidden": false,
+                            "clearable": true,
+                            "showPassword": false,
+                            "required": false,
+                            "requiredHint": "",
+                            "validation": "",
+                            "validationHint": "",
+                            "customClass": [
+                              "form"
+                            ],
+                            "labelIconClass": null,
+                            "labelIconPosition": "rear",
+                            "labelTooltip": null,
+                            "minLength": null,
+                            "maxLength": null,
+                            "showWordLimit": false,
+                            "prefixIcon": "",
+                            "suffixIcon": "",
+                            "appendButton": false,
+                            "appendButtonDisabled": false,
+                            "buttonIcon": "custom-search",
+                            "onCreated": "",
+                            "onMounted": "",
+                            "onInput": "",
+                            "onChange": "",
+                            "onFocus": "",
+                            "onBlur": "",
+                            "onValidate": ""
+                          },
+                          "id": "input48077"
+                        }
+                      ],
+                      "options": {
+                        "name": "gridCol81947",
+                        "hidden": false,
+                        "span": 6,
+                        "offset": 0,
+                        "push": 0,
+                        "pull": 0,
+                        "responsive": false,
+                        "md": 12,
+                        "sm": 12,
+                        "xs": 12,
+                        "customClass": ""
+                      },
+                      "id": "grid-col-81947"
+                    },
+                    {
+                      "type": "grid-col",
+                      "category": "container",
+                      "icon": "grid-col",
+                      "internal": true,
+                      "widgetList": [],
+                      "options": {
+                        "name": "gridCol10179",
+                        "hidden": false,
+                        "span": 6,
+                        "offset": 0,
+                        "push": 0,
+                        "pull": 0,
+                        "responsive": false,
+                        "md": 12,
+                        "sm": 12,
+                        "xs": 12,
+                        "customClass": []
+                      },
+                      "id": "grid-col-10179"
+                    }
+                  ],
+                  "options": {
+                    "name": "grid110782",
+                    "hidden": false,
+                    "gutter": 12,
+                    "colHeight": null,
+                    "customClass": []
+                  },
+                  "id": "grid110782"
+                },
+                {
+                  "type": "grid",
+                  "category": "container",
+                  "icon": "grid",
+                  "cols": [
+                    {
+                      "type": "grid-col",
+                      "category": "container",
+                      "icon": "grid-col",
+                      "internal": true,
+                      "widgetList": [
+                        {
+                          "key": 59596,
+                          "type": "input",
+                          "icon": "text-field",
+                          "formItemFlag": true,
+                          "options": {
+                            "name": "input39464",
+                            "label": "证书序列号",
+                            "labelAlign": "",
+                            "type": "text",
+                            "defaultValue": "",
+                            "placeholder": "",
+                            "columnWidth": "200px",
+                            "size": "",
+                            "labelWidth": null,
+                            "labelHidden": false,
+                            "readonly": false,
+                            "disabled": false,
+                            "hidden": false,
+                            "clearable": true,
+                            "showPassword": false,
+                            "required": false,
+                            "requiredHint": "",
+                            "validation": "",
+                            "validationHint": "",
+                            "customClass": [
+                              "form"
+                            ],
+                            "labelIconClass": null,
+                            "labelIconPosition": "rear",
+                            "labelTooltip": null,
+                            "minLength": null,
+                            "maxLength": null,
+                            "showWordLimit": false,
+                            "prefixIcon": "",
+                            "suffixIcon": "",
+                            "appendButton": false,
+                            "appendButtonDisabled": false,
+                            "buttonIcon": "custom-search",
+                            "onCreated": "",
+                            "onMounted": "",
+                            "onInput": "",
+                            "onChange": "",
+                            "onFocus": "",
+                            "onBlur": "",
+                            "onValidate": ""
+                          },
+                          "id": "input39464"
+                        }
+                      ],
+                      "options": {
+                        "name": "gridCol10356",
+                        "hidden": false,
+                        "span": 6,
+                        "offset": 0,
+                        "push": 0,
+                        "pull": 0,
+                        "responsive": false,
+                        "md": 12,
+                        "sm": 12,
+                        "xs": 12,
+                        "customClass": ""
+                      },
+                      "id": "grid-col-10356"
+                    },
+                    {
+                      "type": "grid-col",
+                      "category": "container",
+                      "icon": "grid-col",
+                      "internal": true,
+                      "widgetList": [
+                        {
+                          "key": 59596,
+                          "type": "input",
+                          "icon": "text-field",
+                          "formItemFlag": true,
+                          "options": {
+                            "name": "input69509",
+                            "label": "坐    落",
+                            "labelAlign": "",
+                            "type": "text",
+                            "defaultValue": "",
+                            "placeholder": "",
+                            "columnWidth": "200px",
+                            "size": "",
+                            "labelWidth": null,
+                            "labelHidden": false,
+                            "readonly": false,
+                            "disabled": false,
+                            "hidden": false,
+                            "clearable": true,
+                            "showPassword": false,
+                            "required": false,
+                            "requiredHint": "",
+                            "validation": "",
+                            "validationHint": "",
+                            "customClass": [
+                              "form"
+                            ],
+                            "labelIconClass": null,
+                            "labelIconPosition": "rear",
+                            "labelTooltip": null,
+                            "minLength": null,
+                            "maxLength": null,
+                            "showWordLimit": false,
+                            "prefixIcon": "",
+                            "suffixIcon": "",
+                            "appendButton": false,
+                            "appendButtonDisabled": false,
+                            "buttonIcon": "custom-search",
+                            "onCreated": "",
+                            "onMounted": "",
+                            "onInput": "",
+                            "onChange": "",
+                            "onFocus": "",
+                            "onBlur": "",
+                            "onValidate": ""
+                          },
+                          "id": "input69509"
+                        }
+                      ],
+                      "options": {
+                        "name": "gridCol36324",
+                        "hidden": false,
+                        "span": 6,
+                        "offset": 0,
+                        "push": 0,
+                        "pull": 0,
+                        "responsive": false,
+                        "md": 12,
+                        "sm": 12,
+                        "xs": 12,
+                        "customClass": []
+                      },
+                      "id": "grid-col-36324"
+                    },
+                    {
+                      "type": "grid-col",
+                      "category": "container",
+                      "icon": "grid-col",
+                      "internal": true,
+                      "widgetList": [
+                        {
+                          "key": 53112,
+                          "type": "select",
+                          "icon": "select-field",
+                          "formItemFlag": true,
+                          "options": {
+                            "name": "select92237",
+                            "label": "数据历史状态",
+                            "labelAlign": "",
+                            "defaultValue": 1,
+                            "placeholder": "",
+                            "columnWidth": "200px",
+                            "size": "",
+                            "labelWidth": null,
+                            "labelHidden": false,
+                            "disabled": false,
+                            "hidden": false,
+                            "clearable": true,
+                            "filterable": false,
+                            "allowCreate": false,
+                            "remote": false,
+                            "automaticDropdown": false,
+                            "multiple": false,
+                            "multipleLimit": 0,
+                            "optionItems": [
+                              {
+                                "label": "全部",
+                                "value": 1
+                              },
+                              {
+                                "label": "现实",
+                                "value": 2
+                              },
+                              {
+                                "label": "历史",
+                                "value": 3
+                              }
+                            ],
+                            "required": false,
+                            "requiredHint": "",
+                            "validation": "",
+                            "validationHint": "",
+                            "customClass": [],
+                            "labelIconClass": null,
+                            "labelIconPosition": "rear",
+                            "labelTooltip": null,
+                            "onCreated": "",
+                            "onMounted": "",
+                            "onRemoteQuery": "",
+                            "onChange": "",
+                            "onFocus": "",
+                            "onBlur": "",
+                            "onValidate": ""
+                          },
+                          "id": "select92237"
+                        }
+                      ],
+                      "options": {
+                        "name": "gridCol26810",
+                        "hidden": false,
+                        "span": 6,
+                        "offset": 0,
+                        "push": 0,
+                        "pull": 0,
+                        "responsive": false,
+                        "md": 12,
+                        "sm": 12,
+                        "xs": 12,
+                        "customClass": ""
+                      },
+                      "id": "grid-col-26810"
+                    },
+                    {
+                      "type": "grid-col",
+                      "category": "container",
+                      "icon": "grid-col",
+                      "internal": true,
+                      "widgetList": [],
+                      "options": {
+                        "name": "gridCol28597",
+                        "hidden": false,
+                        "span": 6,
+                        "offset": 0,
+                        "push": 0,
+                        "pull": 0,
+                        "responsive": false,
+                        "md": 12,
+                        "sm": 12,
+                        "xs": 12,
+                        "customClass": ""
+                      },
+                      "id": "grid-col-28597"
+                    }
+                  ],
+                  "options": {
+                    "name": "grid104409",
+                    "hidden": false,
+                    "gutter": 12,
+                    "colHeight": null,
+                    "customClass": ""
+                  },
+                  "id": "grid104409"
+                },
+                {
+                  "type": "grid",
+                  "category": "container",
+                  "icon": "grid",
+                  "cols": [
+                    {
+                      "type": "grid-col",
+                      "category": "container",
+                      "icon": "grid-col",
+                      "internal": true,
+                      "widgetList": [
+                        {
+                          "key": 59596,
+                          "type": "input",
+                          "icon": "text-field",
+                          "formItemFlag": true,
+                          "options": {
+                            "name": "input97349",
+                            "label": "档    案    号",
+                            "labelAlign": "",
+                            "type": "text",
+                            "defaultValue": "",
+                            "placeholder": "",
+                            "columnWidth": "200px",
+                            "size": "",
+                            "labelWidth": null,
+                            "labelHidden": false,
+                            "readonly": false,
+                            "disabled": false,
+                            "hidden": false,
+                            "clearable": true,
+                            "showPassword": false,
+                            "required": false,
+                            "requiredHint": "",
+                            "validation": "",
+                            "validationHint": "",
+                            "customClass": [
+                              "form"
+                            ],
+                            "labelIconClass": null,
+                            "labelIconPosition": "rear",
+                            "labelTooltip": null,
+                            "minLength": null,
+                            "maxLength": null,
+                            "showWordLimit": false,
+                            "prefixIcon": "",
+                            "suffixIcon": "",
+                            "appendButton": false,
+                            "appendButtonDisabled": false,
+                            "buttonIcon": "custom-search",
+                            "onCreated": "",
+                            "onMounted": "",
+                            "onInput": "",
+                            "onChange": "",
+                            "onFocus": "",
+                            "onBlur": "",
+                            "onValidate": ""
+                          },
+                          "id": "input97349"
+                        }
+                      ],
+                      "options": {
+                        "name": "gridCol87313",
+                        "hidden": false,
+                        "span": 6,
+                        "offset": 0,
+                        "push": 0,
+                        "pull": 0,
+                        "responsive": false,
+                        "md": 12,
+                        "sm": 12,
+                        "xs": 12,
+                        "customClass": ""
+                      },
+                      "id": "grid-col-87313"
+                    },
+                    {
+                      "type": "grid-col",
+                      "category": "container",
+                      "icon": "grid-col",
+                      "internal": true,
+                      "widgetList": [],
+                      "options": {
+                        "name": "gridCol23532",
+                        "hidden": false,
+                        "span": 7,
+                        "offset": 0,
+                        "push": 0,
+                        "pull": 0,
+                        "responsive": false,
+                        "md": 12,
+                        "sm": 12,
+                        "xs": 12,
+                        "customClass": []
+                      },
+                      "id": "grid-col-23532"
+                    },
+                    {
+                      "type": "grid-col",
+                      "category": "container",
+                      "icon": "grid-col",
+                      "internal": true,
+                      "widgetList": [],
+                      "options": {
+                        "name": "gridCol53812",
+                        "hidden": false,
+                        "span": 7,
+                        "offset": 0,
+                        "push": 0,
+                        "pull": 0,
+                        "responsive": false,
+                        "md": 12,
+                        "sm": 12,
+                        "xs": 12,
+                        "customClass": []
+                      },
+                      "id": "grid-col-53812"
+                    },
+                    {
+                      "type": "grid-col",
+                      "category": "container",
+                      "icon": "grid-col",
+                      "internal": true,
+                      "widgetList": [
+                        {
+                          "key": 100678,
+                          "type": "button",
+                          "icon": "button",
+                          "formItemFlag": false,
+                          "options": {
+                            "name": "button72454",
+                            "label": "查询",
+                            "columnWidth": "200px",
+                            "size": "",
+                            "displayStyle": "block",
+                            "disabled": false,
+                            "hidden": false,
+                            "type": "primary",
+                            "plain": false,
+                            "round": false,
+                            "circle": false,
+                            "icon": null,
+                            "customClass": [
+                              "button_cx"
+                            ],
+                            "onCreated": "",
+                            "onMounted": "",
+                            "onClick": ""
+                          },
+                          "id": "button72454"
+                        }
+                      ],
+                      "options": {
+                        "name": "gridCol33467",
+                        "hidden": false,
+                        "span": 2,
+                        "offset": 0,
+                        "push": 0,
+                        "pull": 0,
+                        "responsive": false,
+                        "md": 12,
+                        "sm": 12,
+                        "xs": 12,
+                        "customClass": []
+                      },
+                      "id": "grid-col-33467"
+                    },
+                    {
+                      "type": "grid-col",
+                      "category": "container",
+                      "icon": "grid-col",
+                      "internal": true,
+                      "widgetList": [
+                        {
+                          "key": 100678,
+                          "type": "button",
+                          "icon": "button",
+                          "formItemFlag": false,
+                          "options": {
+                            "name": "button51737",
+                            "label": "重置",
+                            "columnWidth": "200px",
+                            "size": "",
+                            "displayStyle": "block",
+                            "disabled": false,
+                            "hidden": false,
+                            "type": "primary",
+                            "plain": false,
+                            "round": false,
+                            "circle": false,
+                            "icon": null,
+                            "customClass": [
+                              "button_cz"
+                            ],
+                            "onCreated": "",
+                            "onMounted": "",
+                            "onClick": ""
+                          },
+                          "id": "button51737"
+                        }
+                      ],
+                      "options": {
+                        "name": "gridCol114293",
+                        "hidden": false,
+                        "span": 2,
+                        "offset": 0,
+                        "push": 0,
+                        "pull": 0,
+                        "responsive": false,
+                        "md": 12,
+                        "sm": 12,
+                        "xs": 12,
+                        "customClass": ""
+                      },
+                      "id": "grid-col-114293"
+                    }
+                  ],
+                  "options": {
+                    "name": "grid78673",
+                    "hidden": false,
+                    "gutter": 12,
+                    "colHeight": null,
+                    "customClass": ""
+                  },
+                  "id": "grid78673"
+                }
+              ],
+              "merged": false,
+              "options": {
+                "name": "table-cell-39790",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": [
+                  "el-input__inner"
+                ]
+              },
+              "id": "table-cell-39790"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-68785",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": []
+              },
+              "id": "table-cell-68785"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-97200",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": []
+              },
+              "id": "table-cell-97200"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-61180",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-61180"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-76977",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-76977"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-97159",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-97159"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-110734",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-110734"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-53538",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-53538"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-33465",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-33465"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-26557",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-26557"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-27112",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-27112"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-101513",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-101513"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-47999",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-47999"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-61635",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-61635"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-31313",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-31313"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-71505",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-71505"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-84088",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-84088"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-25258",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-25258"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-24865",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-24865"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-33382",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-33382"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-83519",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-83519"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-95789",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-95789"
+            }
+          ],
+          "id": "table-row-46279",
+          "merged": false
+        },
+        {
+          "cols": [
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-73401",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": []
+              },
+              "id": "table-cell-73401"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-13298",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": []
+              },
+              "id": "table-cell-13298"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-81975",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": []
+              },
+              "id": "table-cell-81975"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-111650",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-111650"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-9524",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-9524"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-88973",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-88973"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-43754",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-43754"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-64322",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-64322"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-72011",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-72011"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-36261",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-36261"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-25148",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-25148"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-73928",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-73928"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-107680",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-107680"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-96831",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-96831"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-94374",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-94374"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-59321",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-59321"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-33224",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-33224"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-94028",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-94028"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-94854",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-94854"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-26154",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-26154"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-20285",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": ""
+              },
+              "id": "table-cell-20285"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-88432",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 22,
+                "rowspan": 2,
+                "customClass": []
+              },
+              "id": "table-cell-88432"
+            }
+          ],
+          "id": "table-row-80044",
+          "merged": false
+        }
+      ],
+      "options": {
+        "name": "table23554",
+        "hidden": false,
+        "customClass": []
+      },
+      "id": "table23554"
+    },
+    {
+      "type": "grid",
+      "category": "container",
+      "icon": "grid",
+      "cols": [
+        {
+          "type": "grid-col",
+          "category": "container",
+          "icon": "grid-col",
+          "internal": true,
+          "widgetList": [
+            {
+              "key": 71120,
+              "type": "static-text",
+              "icon": "static-text",
+              "formItemFlag": false,
+              "options": {
+                "name": "statictext5001",
+                "columnWidth": "200px",
+                "hidden": false,
+                "textContent": "已被查封",
+                "customClass": [
+                  "background-red"
+                ],
+                "onCreated": "",
+                "onMounted": "",
+                "label": "static-text"
+              },
+              "id": "statictext5001"
+            }
+          ],
+          "options": {
+            "name": "gridCol18309",
+            "hidden": false,
+            "span": 3,
+            "offset": 0,
+            "push": 0,
+            "pull": 0,
+            "responsive": false,
+            "md": 12,
+            "sm": 12,
+            "xs": 12,
+            "customClass": ""
+          },
+          "id": "grid-col-18309"
+        },
+        {
+          "type": "grid-col",
+          "category": "container",
+          "icon": "grid-col",
+          "internal": true,
+          "widgetList": [
+            {
+              "key": 71120,
+              "type": "static-text",
+              "icon": "static-text",
+              "formItemFlag": false,
+              "options": {
+                "name": "statictext63366",
+                "columnWidth": "200px",
+                "hidden": false,
+                "textContent": "已被抵押",
+                "customClass": [
+                  "background-orange"
+                ],
+                "onCreated": "",
+                "onMounted": "",
+                "label": "static-text"
+              },
+              "id": "statictext63366"
+            }
+          ],
+          "options": {
+            "name": "gridCol86224",
+            "hidden": false,
+            "span": 3,
+            "offset": 0,
+            "push": 0,
+            "pull": 0,
+            "responsive": false,
+            "md": 12,
+            "sm": 12,
+            "xs": 12,
+            "customClass": ""
+          },
+          "id": "grid-col-86224"
+        },
+        {
+          "type": "grid-col",
+          "category": "container",
+          "icon": "grid-col",
+          "internal": true,
+          "widgetList": [
+            {
+              "key": 71120,
+              "type": "static-text",
+              "icon": "static-text",
+              "formItemFlag": false,
+              "options": {
+                "name": "statictext58420",
+                "columnWidth": "200px",
+                "hidden": false,
+                "textContent": "已被查封和抵押",
+                "customClass": [
+                  "background-grey"
+                ],
+                "onCreated": "",
+                "onMounted": "",
+                "label": "static-text"
+              },
+              "id": "statictext58420"
+            }
+          ],
+          "options": {
+            "name": "gridCol71356",
+            "hidden": false,
+            "span": 3,
+            "offset": 0,
+            "push": 0,
+            "pull": 0,
+            "responsive": false,
+            "md": 12,
+            "sm": 12,
+            "xs": 12,
+            "customClass": ""
+          },
+          "id": "grid-col-71356"
+        },
+        {
+          "type": "grid-col",
+          "category": "container",
+          "icon": "grid-col",
+          "internal": true,
+          "widgetList": [
+            {
+              "key": 71120,
+              "type": "static-text",
+              "icon": "static-text",
+              "formItemFlag": false,
+              "options": {
+                "name": "statictext113537",
+                "columnWidth": "200px",
+                "hidden": false,
+                "textContent": "已被异议",
+                "customClass": [
+                  "background-blue"
+                ],
+                "onCreated": "",
+                "onMounted": "",
+                "label": "static-text"
+              },
+              "id": "statictext113537"
+            }
+          ],
+          "options": {
+            "name": "gridCol24936",
+            "hidden": false,
+            "span": 3,
+            "offset": 0,
+            "push": 0,
+            "pull": 0,
+            "responsive": false,
+            "md": 12,
+            "sm": 12,
+            "xs": 12,
+            "customClass": ""
+          },
+          "id": "grid-col-24936"
+        }
+      ],
+      "options": {
+        "name": "grid107028",
+        "hidden": false,
+        "gutter": 12,
+        "colHeight": null,
+        "customClass": []
+      },
+      "id": "grid107028"
+    },
+    {
+      "key": 114950,
+      "type": "table",
+      "category": "container",
+      "icon": "table",
+      "rows": [
+        {
+          "cols": [
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [
+                {
+                  "key": 71120,
+                  "type": "static-text",
+                  "icon": "static-text",
+                  "formItemFlag": false,
+                  "options": {
+                    "name": "statictext8089",
+                    "columnWidth": "200px",
+                    "hidden": false,
+                    "textContent": "序号",
+                    "customClass": [],
+                    "onCreated": "",
+                    "onMounted": "",
+                    "label": "static-text"
+                  },
+                  "id": "statictext8089"
+                }
+              ],
+              "merged": false,
+              "options": {
+                "name": "table-cell-85027",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 1,
+                "rowspan": 1,
+                "customClass": [
+                  "table-cell1"
+                ]
+              },
+              "id": "table-cell-85027"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [
+                {
+                  "key": 71120,
+                  "type": "static-text",
+                  "icon": "static-text",
+                  "formItemFlag": false,
+                  "options": {
+                    "name": "statictext32638",
+                    "columnWidth": "200px",
+                    "hidden": false,
+                    "textContent": "受理号",
+                    "customClass": [],
+                    "onCreated": "",
+                    "onMounted": "",
+                    "label": "static-text"
+                  },
+                  "id": "statictext32638"
+                }
+              ],
+              "merged": false,
+              "options": {
+                "name": "table-cell-60155",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 2,
+                "rowspan": 1,
+                "customClass": [
+                  "table-cell1"
+                ]
+              },
+              "id": "table-cell-60155"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-46115",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 2,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-46115"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [
+                {
+                  "key": 71120,
+                  "type": "static-text",
+                  "icon": "static-text",
+                  "formItemFlag": false,
+                  "options": {
+                    "name": "statictext83506",
+                    "columnWidth": "200px",
+                    "hidden": false,
+                    "textContent": "登记类型",
+                    "customClass": [],
+                    "onCreated": "",
+                    "onMounted": "",
+                    "label": "static-text"
+                  },
+                  "id": "statictext83506"
+                }
+              ],
+              "merged": false,
+              "options": {
+                "name": "table-cell-53331",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 1,
+                "rowspan": 1,
+                "customClass": [
+                  "table-cell1"
+                ]
+              },
+              "id": "table-cell-53331"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [
+                {
+                  "key": 71120,
+                  "type": "static-text",
+                  "icon": "static-text",
+                  "formItemFlag": false,
+                  "options": {
+                    "name": "statictext38349",
+                    "columnWidth": "200px",
+                    "hidden": false,
+                    "textContent": "不动产证号",
+                    "customClass": [],
+                    "onCreated": "",
+                    "onMounted": "",
+                    "label": "static-text"
+                  },
+                  "id": "statictext38349"
+                }
+              ],
+              "merged": false,
+              "options": {
+                "name": "table-cell-37741",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 3,
+                "rowspan": 1,
+                "customClass": [
+                  "table-cell1"
+                ]
+              },
+              "id": "table-cell-37741"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-60206",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 3,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-60206"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-60451",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 3,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-60451"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [
+                {
+                  "key": 71120,
+                  "type": "static-text",
+                  "icon": "static-text",
+                  "formItemFlag": false,
+                  "options": {
+                    "name": "statictext70465",
+                    "columnWidth": "200px",
+                    "hidden": false,
+                    "textContent": "不动产单元号",
+                    "customClass": [],
+                    "onCreated": "",
+                    "onMounted": "",
+                    "label": "static-text"
+                  },
+                  "id": "statictext70465"
+                }
+              ],
+              "merged": false,
+              "options": {
+                "name": "table-cell-97091",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 3,
+                "rowspan": 1,
+                "customClass": [
+                  "table-cell1"
+                ]
+              },
+              "id": "table-cell-97091"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-49507",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 3,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-49507"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-41624",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 3,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-41624"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [
+                {
+                  "key": 71120,
+                  "type": "static-text",
+                  "icon": "static-text",
+                  "formItemFlag": false,
+                  "options": {
+                    "name": "statictext78394",
+                    "columnWidth": "200px",
+                    "hidden": false,
+                    "textContent": "证书序列号",
+                    "customClass": [],
+                    "onCreated": "",
+                    "onMounted": "",
+                    "label": "static-text"
+                  },
+                  "id": "statictext78394"
+                }
+              ],
+              "merged": false,
+              "options": {
+                "name": "table-cell-87766",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 2,
+                "rowspan": 1,
+                "customClass": [
+                  "table-cell1"
+                ]
+              },
+              "id": "table-cell-87766"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-79328",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 2,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-79328"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [
+                {
+                  "key": 71120,
+                  "type": "static-text",
+                  "icon": "static-text",
+                  "formItemFlag": false,
+                  "options": {
+                    "name": "statictext27227",
+                    "columnWidth": "200px",
+                    "hidden": false,
+                    "textContent": "发证日期",
+                    "customClass": [],
+                    "onCreated": "",
+                    "onMounted": "",
+                    "label": "static-text"
+                  },
+                  "id": "statictext27227"
+                }
+              ],
+              "merged": false,
+              "options": {
+                "name": "table-cell-58776",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 2,
+                "rowspan": 1,
+                "customClass": [
+                  "table-cell1"
+                ]
+              },
+              "id": "table-cell-58776"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-29240",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 2,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-29240"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [
+                {
+                  "key": 71120,
+                  "type": "static-text",
+                  "icon": "static-text",
+                  "formItemFlag": false,
+                  "options": {
+                    "name": "statictext76306",
+                    "columnWidth": "200px",
+                    "hidden": false,
+                    "textContent": "权利人",
+                    "customClass": "",
+                    "onCreated": "",
+                    "onMounted": "",
+                    "label": "static-text"
+                  },
+                  "id": "statictext76306"
+                }
+              ],
+              "merged": false,
+              "options": {
+                "name": "table-cell-90541",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 1,
+                "rowspan": 1,
+                "customClass": [
+                  "table-cell1"
+                ]
+              },
+              "id": "table-cell-90541"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [
+                {
+                  "key": 71120,
+                  "type": "static-text",
+                  "icon": "static-text",
+                  "formItemFlag": false,
+                  "options": {
+                    "name": "statictext68500",
+                    "columnWidth": "200px",
+                    "hidden": false,
+                    "textContent": "权利人证件号",
+                    "customClass": [],
+                    "onCreated": "",
+                    "onMounted": "",
+                    "label": "static-text"
+                  },
+                  "id": "statictext68500"
+                }
+              ],
+              "merged": false,
+              "options": {
+                "name": "table-cell-95840",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 2,
+                "rowspan": 1,
+                "customClass": [
+                  "table-cell1"
+                ]
+              },
+              "id": "table-cell-95840"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-67462",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 2,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-67462"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [
+                {
+                  "key": 71120,
+                  "type": "static-text",
+                  "icon": "static-text",
+                  "formItemFlag": false,
+                  "options": {
+                    "name": "statictext81501",
+                    "columnWidth": "200px",
+                    "hidden": false,
+                    "textContent": "状态",
+                    "customClass": "",
+                    "onCreated": "",
+                    "onMounted": "",
+                    "label": "static-text"
+                  },
+                  "id": "statictext81501"
+                }
+              ],
+              "merged": false,
+              "options": {
+                "name": "table-cell-36856",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 1,
+                "rowspan": 1,
+                "customClass": [
+                  "table-cell1"
+                ]
+              },
+              "id": "table-cell-36856"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [
+                {
+                  "key": 71120,
+                  "type": "static-text",
+                  "icon": "static-text",
+                  "formItemFlag": false,
+                  "options": {
+                    "name": "statictext63713",
+                    "columnWidth": "200px",
+                    "hidden": false,
+                    "textContent": "档案号",
+                    "customClass": "",
+                    "onCreated": "",
+                    "onMounted": "",
+                    "label": "static-text"
+                  },
+                  "id": "statictext63713"
+                }
+              ],
+              "merged": false,
+              "options": {
+                "name": "table-cell-17099",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 1,
+                "rowspan": 1,
+                "customClass": [
+                  "table-cell1"
+                ]
+              },
+              "id": "table-cell-17099"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [
+                {
+                  "key": 71120,
+                  "type": "static-text",
+                  "icon": "static-text",
+                  "formItemFlag": false,
+                  "options": {
+                    "name": "statictext104885",
+                    "columnWidth": "200px",
+                    "hidden": false,
+                    "textContent": "坐落",
+                    "customClass": [],
+                    "onCreated": "",
+                    "onMounted": "",
+                    "label": "static-text"
+                  },
+                  "id": "statictext104885"
+                }
+              ],
+              "merged": false,
+              "options": {
+                "name": "table-cell-52046",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 3,
+                "rowspan": 1,
+                "customClass": [
+                  "table-cell1"
+                ]
+              },
+              "id": "table-cell-52046"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-35835",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 3,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-35835"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-84727",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 3,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-84727"
+            }
+          ],
+          "id": "table-row-69680",
+          "merged": false
+        }
+      ],
+      "options": {
+        "name": "table107530",
+        "hidden": false,
+        "customClass": [
+          "table"
+        ]
+      },
+      "id": "table107530"
+    },
+    {
+      "key": 38342,
+      "type": "table",
+      "category": "container",
+      "icon": "table",
+      "rows": [
+        {
+          "cols": [
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": false,
+              "options": {
+                "name": "table-cell-51516",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 1,
+                "rowspan": 1,
+                "customClass": []
+              },
+              "id": "table-cell-51516"
+            }
+          ],
+          "id": "table-row-53959",
+          "merged": false
+        }
+      ],
+      "options": {
+        "name": "table81232",
+        "hidden": false,
+        "customClass": ""
+      },
+      "id": "table81232"
+    }
+  ],
+  "formConfig": {
+    "modelName": "formData",
+    "refName": "vForm",
+    "rulesName": "rules",
+    "labelWidth": 80,
+    "labelPosition": "left",
+    "size": "",
+    "labelAlign": "label-center-align",
+    "cssCode": "\n.table-container .table-layout {\n    text-align: center;\n    height: 80%;\n\n  }\n.el-tabs-bgcolor{\n      background-color: #f2f2f2;\n}\n.table-content{\n   background-color: #fffdf2;\n}\n\n.table-content2{\n   background-color: #ffffff;\n}\n\n  .el-input__wrapper,.el-textarea__inner{\n    box-shadow: none;\n  }\n  .el-input__wrapper:hover{\n    box-shadow: none;\n  }\n  \n  .el-textarea__inner:hover{\n    box-shadow: none;\n  }\n  .el-upload-list--picture-card{\n    margin-left: 35%;\n  }\n\n.qlrxx{\n  background-color: #cde0f8;\n}\n.background-red{\n  background-color: #ff0000;\n  color:#000;\n  text-align: center;\n}\n.background-orange{\n  background-color: #ff8000;\n   color:#000;\n     text-align: center;\n}\n.background-grey{\n  background-color: #808080;\n   color:#000;\n     text-align: center;\n}\n.background-blue{\n  background-color: #80ffff;\n   color:#000;\n     text-align: center;\n}\n\n.el-input__wrapper{\n  margin-left: 5px;\n}\n.el-form-item el-form-item--default label-center-align{\n  margin-top:15px;\n}\n.form{\n  margin: 7px 0px 7px 3px;\n  \n}\n.button_cx{\n  margin: 0 auto;\n}\n.button_cz{\n  margin: 0 auto;\n}\n  .table-cell1 {\n    background: #f1f8ff; \n    border: 1px solid #c5c5c5!important;\n  }\n   .table-cell2 {\n    background: #f2f2f2; \n    border: 1px solid #a3caff!important;\n  }\n  .position{\n     position: absolute;\n    top: 80%;\n    left: 50%;\n    z-index: 99;\n    transform: translate(-50%, -50%);\n    background: #fff;\n    width: 80%;\n  }\n\n.fzrq{\n  \n  margin-bottom: 0px;\n\n}\n.dw{\n  text-align:right;\n}\n\n\n.el-input__wrapper{\n   border: 1px solid #cfcfcf;\n}\n\n.table{\n  \n}\n.rq-input{\n  width:315px;\n}",
+    "customClass": [],
+    "functions": "",
+    "layoutType": "PC",
+    "jsonVersion": 3,
+    "onFormCreated": "",
+    "onFormMounted": "",
+    "onFormDataChange": "",
+    "onFormValidate": "",
+    "dataSources": []
+  }
+}
