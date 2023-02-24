@@ -474,8 +474,9 @@ const query = () => {
                       }
 
                     }
-                    //加载按单元查封注销信息
-                    for (var j = 0; j < ArrDYCFXX; j++) {
+                    //加载按单元查封注销信息 KFQFCCF201812030020
+                    console.log("ArrDYCFXX", ArrDYCFXX)
+                    for (var j = 0; j < ArrDYCFXX.length; j++) {
                       var dycfxx = Format(ArrDYCFXX[j]);
                       if (dycfxx != "") {
                         var dycfSLBH = dycfxx.split(";");
@@ -483,6 +484,7 @@ const query = () => {
                           dycfzx: "SELECT Nvl(A.XGZH,B.XGZH) AS XGZH,SLBH FROM DJ_XGDJZX A LEFT JOIN DJ_XGDJGL B ON A.SLBH = B.ZSLBH WHERE B.FSLBH = '" + dycfSLBH[0] + "' AND ROWNUM < 2",
                         }
                         axios.post("http://127.0.0.1:8079/test/sqls", dycfzxSqls, config).then((res) => {
+                          console.log("dyzfzx", res.data.data.dycfzx)
                           var resdycfzx = res.data.data.dycfzx;
                           if (resdycfzx.length > 0) {
                             for (var n = 0; n < resdycfzx.length; n++) {
@@ -513,11 +515,12 @@ const query = () => {
                   }
               )
             }
+            //加载按单元抵押信息
             if (treeSqlsDate.dydyxx[0].COUNT > 0) {
+
               treedata.push(getTreeNode("按单元抵押信息"));
             }
             //加载按单元查封注销信息
-            //加载按单元抵押信息
             //加载按单元抵押注销信息
             console.log("ArrQZXX", ArrQZXX)
 
