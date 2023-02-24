@@ -119,7 +119,7 @@ const query = () => {
         headers: {"Content-Type": "application/json"},
       };
 
-      // axios.post("http://127.0.0.1:8079/test/sqls", data, config).then((res) => {
+
       axios.post("http://127.0.0.1:8079/test/sqls", data, config).then((res) => {
         console.log("data", res.data.data);
         let datas = res.data.data.query;
@@ -228,14 +228,14 @@ const query = () => {
 
 
             // 加载限制性登记信息
-            var slbhAndTstybm;
             for (let i = 0; i < ArrQZXX.length; i++) {
               sKeyName = Format(ArrQZXX[i]);
               let child = [];
-
+              let ArrKey;
+              //对证书处理start
               if (sKeyName != "") {
 
-                let ArrKey = sKeyName.split(";");
+                ArrKey = sKeyName.split(";");//获取证书对应的受理编号和图书统一编码
                 var xzdjxx = {
                   zx: "SELECT A.XGZH,A.SLBH FROM DJ_XGDJZX A LEFT JOIN DJ_XGDJGL B ON A.SLBH = B.ZSLBH WHERE A.SLBH IS NOT NULL AND B.FSLBH = '" + ArrKey[0] + "'",
                   dy: "SELECT A.BDCZMH,A.SLBH,A.LIFECYCLE,A.DJRQ FROM DJ_DY A LEFT JOIN DJ_XGDJGL B ON A.SLBH = B.ZSLBH WHERE A.SLBH IS NOT NULL AND B.FSLBH = '" + ArrKey[0] + "' ORDER BY NVL(A.LIFECYCLE,0),A.DJRQ",
@@ -254,22 +254,11 @@ const query = () => {
                       if (zx.length > 0) {
                         for (var j = 0; j < zx.length; j++) {
                           var zxSlbh = Format(zx[j].SLBH);
-                          slbhAndTstybm = zxSlbh + ";" + ArrKey[1];
                           var zxzh = Format(zx[j].XGZH)
                           if (zxzh == "" || zxzh == null) {
                             zxzh = zxSlbh;
                           }
-                          //TODO 没有存储受理编号和图书统一编码
-                          var child2 = {
-                            label: "权证注销-" + zxzh,
-                            icon: 'iconfont icon-dengjizheng',
-                            style: 'color: #f0a830;font-size: 23px;',
-                            detail: "",
-                            lcmc: "BLDJ",
-                            lcjson: "",
-                            key: ""
-                          };
-                          child.push(child2);
+                          child.push(getTreeChildrenNode("权证注销-" + zxzh, zxSlbh, ArrKey[1]));
                         }
                       }
                       //抵押信息
@@ -284,18 +273,7 @@ const query = () => {
                           } else {
                             dyName += "(现实)";
                           }
-                          //TODO 没有存储受理编号和图书统一编码
-                          var child2 = {
-                            label: dyName,
-                            icon: 'iconfont icon-dengjizheng',
-                            style: 'color: #f0a830;font-size: 23px;',
-                            detail: "",
-                            lcmc: "BLDJ",
-                            lcjson: "",
-                            key: ""
-                          };
-
-                          child.push(child2);
+                          child.push(getTreeChildrenNode(dyName, Format(dy[j].SLBH), ArrKey[1]));
                         }
                       }
                       //注销抵押信息
@@ -308,16 +286,7 @@ const query = () => {
                           if (zxdyZH == "" || zxdyZH == null) {
                             zxdyZH = zxdySlbh;
                           }
-                          var child2 = {
-                            label: "抵押注销-" + zxdyZH,
-                            icon: 'iconfont icon-dengjizheng',
-                            style: 'color: #f0a830;font-size: 23px;',
-                            detail: "",
-                            lcmc: "BLDJ",
-                            lcjson: "",
-                            key: ""
-                          };
-                          child.push(child2);
+                          child.push(getTreeChildrenNode("抵押注销-" + zxdyZH, zxdySlbh, ArrKey[1]));
                         }
                       }
                       //查封信息
@@ -336,17 +305,8 @@ const query = () => {
                           } else {
                             cfName += "(现实)";
                           }
-                          //TODO 没有存储受理编号和图书统一编码
-                          var child2 = {
-                            label: cfName,
-                            icon: 'iconfont icon-dengjizheng',
-                            style: 'color: #f0a830;font-size: 23px;',
-                            detail: "",
-                            lcmc: "BLDJ",
-                            lcjson: "",
-                            key: ""
-                          };
-                          child.push(child2);
+                          child.push(getTreeChildrenNode(cfName, Format(cf[j].SLBH), ArrKey[1]));
+
                         }
                       }
                       //注销查封信息
@@ -354,21 +314,12 @@ const query = () => {
                       if (zxcf.length > 0) {
                         for (var j = 0; j < zxcf.length; j++) {
                           var zxcfSlbh = Format(zxcf[j].ZLBH);
-                          //TODO 没有存储受理编号和图书统一编码
+
                           var zxcfZH = Format(zxcf[j].XGZH);
                           if (zxcfZH == "" || zxcfZH == null) {
                             zxcfZH = zxcfSlbh
                           }
-                          var child2 = {
-                            label: "解封-" + zxcfZH,
-                            icon: 'iconfont icon-dengjizheng',
-                            style: 'color: #f0a830;font-size: 23px;',
-                            detail: "",
-                            lcmc: "BLDJ",
-                            lcjson: "",
-                            key: ""
-                          };
-                          child.push(child2);
+                          child.push(getTreeChildrenNode("解封-" + zxcfZH, zxcfSlbh, ArrKey[1]));
                         }
                       }
                       //异议信息
@@ -383,21 +334,7 @@ const query = () => {
                           } else {
                             yyName += "(现实)";
                           }
-                          //TODO 没有存储受理编号和图书统一编码
-
-                          var child2 = {
-                            label: yyName,
-                            icon: 'iconfont icon-dengjizheng',
-                            style: 'color: #f0a830;font-size: 23px;',
-                            detail: "",
-                            lcmc: "BLDJ",
-                            lcjson: "",
-                            key: ""
-                          };
-
-                          console.log("slbh", ArrKey[0])
-                          console.log("slbhyy", yy[0].SLBH)
-                          child.push(child2);
+                          child.push(getTreeChildrenNode(yyName), Format(yy[j].SLBH), ArrKey[1]);
 
                         }
 
@@ -412,23 +349,15 @@ const query = () => {
                           if (zxyyZH == "" || zxyyZH == null) {
                             zxyyZH = zxyySlbh
                           }
-                          var child2 = {
-                            label: "异议注销-" + zxyyZH,
-                            icon: 'iconfont icon-dengjizheng',
-                            style: 'color: #f0a830;font-size: 23px;',
-                            detail: "",
-                            lcmc: "BLDJ",
-                            lcjson: "",
-                            key: ""
-                          };
-                          child.push(child2);
+                          child.push(getTreeChildrenNode("异议注销-" + zxyyZH, zxyySlbh, ArrKey[1]));
                         }
                       }
                     }
                 )
               }
-              console.log("tree", getTreeNode(zsxx[i], child))
-              treedata.push(getTreeNode(zsxx[i], child))
+              //对证书处理end
+              console.log("tree", getTreeNode(zsxx[i], ArrKey[0], ArrKey[1], child))
+              treedata.push(getTreeNode(zsxx[i], ArrKey[0], ArrKey[1], child))
             }
             //加载限制性登记信息 end
 
@@ -460,28 +389,19 @@ const query = () => {
                         }
                         var st = dycfxx_SLBH + ";" + dycfxx_TSTYBM;
                         ArrDYCFXX[j] = st;
-                        //TODO 没有存储受理编号和图书统一编码
-                        var child2 = {
-                          label: dycfxxName,
-                          icon: 'iconfont icon-dengjizheng',
-                          style: 'color: #f0a830;font-size: 23px;',
-                          detail: "",
-                          lcmc: "BLDJ",
-                          lcjson: "",
-                          key: ""
-                        };
-                        child.push(child2);
-                      }
 
+                        child.push(getTreeChildrenNode(dycfxxName, dycfxx_SLBH, dycfxx_TSTYBM));
+                      }
                     }
+
                     //加载按单元查封注销信息 KFQFCCF201812030020
                     console.log("ArrDYCFXX", ArrDYCFXX)
                     for (var j = 0; j < ArrDYCFXX.length; j++) {
                       var dycfxx = Format(ArrDYCFXX[j]);
                       if (dycfxx != "") {
-                        var dycfSLBH = dycfxx.split(";");
+                        var dycfSLBH_TSTYBM = dycfxx.split(";");//受理编号和图属统一编码
                         var dycfzxSqls = {
-                          dycfzx: "SELECT Nvl(A.XGZH,B.XGZH) AS XGZH,SLBH FROM DJ_XGDJZX A LEFT JOIN DJ_XGDJGL B ON A.SLBH = B.ZSLBH WHERE B.FSLBH = '" + dycfSLBH[0] + "' AND ROWNUM < 2",
+                          dycfzx: "SELECT Nvl(A.XGZH,B.XGZH) AS XGZH,SLBH FROM DJ_XGDJZX A LEFT JOIN DJ_XGDJGL B ON A.SLBH = B.ZSLBH WHERE B.FSLBH = '" + dycfSLBH_TSTYBM[0] + "' AND ROWNUM < 2",
                         }
                         axios.post("http://127.0.0.1:8079/test/sqls", dycfzxSqls, config).then((res) => {
                           console.log("dyzfzx", res.data.data.dycfzx)
@@ -494,30 +414,26 @@ const query = () => {
                               if (dycfzx_ZH == "") {
                                 dycfzx_ZH = dycfzx_SLBH;
                               }
-                              var child2 = {
-                                label: "解封-" + dycfzx_ZH,
-                                icon: 'iconfont icon-dengjizheng',
-                                style: 'color: #f0a830;font-size: 23px;',
-                                detail: "",
-                                lcmc: "BLDJ",
-                                lcjson: "",
-                                key: ""
-                              };
-                              child.push(child2);
+
+                              child.push(getTreeChildrenNode("解封-" + dycfzx_ZH, dycfzx_SLBH, dycfSLBH_TSTYBM[1]));
+
                             }
 
                           }
                         })
                       }
                     }
-                    treedata.push(getTreeNode("按单元查封信息", child));
-
+                    console.log("按单元查封信息tree", getTreeNode("按单元查封信息", null, null, child))
+                    treedata.push(getTreeNode("按单元查封信息", null, null, child));
                   }
               )
             }
             //加载按单元抵押信息
             if (treeSqlsDate.dydyxx[0].COUNT > 0) {
-
+              var dydyxxSqls = {
+                dydyxx: "SELECT DISTINCT B.TSTYBM,A.BDCZMH,A.LIFECYCLE,A.DJRQ,A.SLBH FROM DJ_DY A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_XGDJGL C ON A.SLBH = C.ZSLBH WHERE A.XGZH IS NULL AND C.XGZH IS NULL AND C.FSLBH IS NULL AND TSTYBM = '" + TSTYBM + "' ORDER BY NVL(A.LIFECYCLE,0),A.DJRQ"
+              }
+              let child = []
               treedata.push(getTreeNode("按单元抵押信息"));
             }
             //加载按单元查封注销信息
@@ -538,21 +454,31 @@ const query = () => {
   }
 
 
-  function getTreeNode(zsDQXX, children) {
+  function getTreeNode(NodeName, SLBH, TSTYBM, children) {
 
     return {
-      label: zsDQXX,
+      label: NodeName,
       icon: 'iconfont icon-wenjian',
       style: "color:#ffe090;font-size: 23px",
-      detail: "",
-      lcmc: "",
-      lcjson: "",
-      key: "",
+      slbh: SLBH,
+      tstybm: TSTYBM,
       children: children,
     }
   }
 
+  function getTreeChildrenNode(ChildNodeName, ChildSLBH, ChildTSTYBM) {
+    return {
+      label: ChildNodeName,
+      icon: 'iconfont icon-dengjizheng',
+      style: 'color: #f0a830;font-size: 23px;',
+      childslbh: ChildSLBH,
+      childtstybm: ChildTSTYBM,
+
+    }
+  }
+
   //格式化
+
   function Format(sVal) {
     if (sVal == null || sVal + "" == "null" || typeof (sVal) == "undefined") {
       return "";
