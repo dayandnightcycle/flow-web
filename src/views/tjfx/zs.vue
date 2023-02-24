@@ -147,7 +147,7 @@ const query = () => {
             for (let j = 0; j < 12; j++) {
               if (row.cells[j].innerHTML == e.target.innerHTML) {
                 tstybmdata.value = datas[i].TSTYBM;
-                loadTreeInfo(tstybmdata.value);
+                loadTreeInfo(tstybmdata.value); //点击调用loadTreeInfo函数加载树结构信息
 
               }
             }
@@ -176,11 +176,11 @@ const query = () => {
     var sKeyName;
     var treeSqlsDate;
     var zsxx = new Array();
-    let result = {};
+
     axios.post("http://127.0.0.1:8079/test/sqls", treeSqls, config).then((res) => {
 
-          // treeSqlsDate = res.data.data;
-          result = res.data.data;
+          treeSqlsDate = res.data.data;
+
           console.log("treeSqlsDate1", res.data.data)
           var zs = treeSqlsDate.loadCCIE;
           if (zs != null) {
@@ -343,6 +343,7 @@ const query = () => {
                           child.push(child2);
                         }
                       }
+                      //注销查封信息
                       //异议信息
                       var yy = resXzDjXx.yy;
                       if (yy.length != 0) {
@@ -374,6 +375,7 @@ const query = () => {
                         }
 
                       }
+                      //注销异议信息
 
                     }
                 )
@@ -395,7 +397,6 @@ const query = () => {
           }
         }
     )
-    console.log("treeSqlsDate2", result)
 
 
   }
