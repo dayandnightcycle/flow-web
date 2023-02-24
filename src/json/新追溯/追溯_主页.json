@@ -1991,7 +1991,7 @@
                     "name": "statictext32638",
                     "columnWidth": "200px",
                     "hidden": false,
-                    "textContent": "受理号",
+                    "textContent": "受理编号",
                     "customClass": [],
                     "onCreated": "",
                     "onMounted": "",
@@ -2278,7 +2278,7 @@
                     "name": "statictext27227",
                     "columnWidth": "200px",
                     "hidden": false,
-                    "textContent": "发证日期",
+                    "textContent": "登簿日期",
                     "customClass": [],
                     "onCreated": "",
                     "onMounted": "",
@@ -2332,7 +2332,7 @@
                     "name": "statictext76306",
                     "columnWidth": "200px",
                     "hidden": false,
-                    "textContent": "权利人",
+                    "textContent": "权利人名称",
                     "customClass": "",
                     "onCreated": "",
                     "onMounted": "",
@@ -2460,7 +2460,7 @@
                     "name": "statictext63713",
                     "columnWidth": "200px",
                     "hidden": false,
-                    "textContent": "档案号",
+                    "textContent": "归档号",
                     "customClass": "",
                     "onCreated": "",
                     "onMounted": "",
@@ -2618,10 +2618,10 @@
     "functions": "",
     "layoutType": "PC",
     "jsonVersion": 3,
+    "dataSources": [],
     "onFormCreated": "",
     "onFormMounted": "",
     "onFormDataChange": "",
-    "onFormValidate": "",
-    "dataSources": []
+    "onFormValidate": ""
   }
 }

@@ -109,6 +109,10 @@ const query = () => {
         //没有权利人名称和证件号
         query: "SELECT *  from (SELECT ROWNUM AS RN, t1.*  from (SELECT DISTINCT A.SLBH,A.DJLX,A.BDCZH,B.BDCDYH,A.ZSXLH,A.DJRQ,N''AS QLRMC,N''AS QLRZJH,N''AS ZT,A.GDH,NVL(C.ZL, C.TZRTXDZ) AS ZL,A.LIFECYCLE,A.YWLX,B.TSTYBM   from (SELECT SLBH,DJLX,BDCZH,ZSXLH,DJRQ,LIFECYCLE,N'权证' AS YWLX,GDH   from DJ_DJB UNION ALL SELECT SLBH,DJLX,BDCZMH AS BDCZH,ZSXLH,DJRQ,LIFECYCLE,N'预告'  AS YWLX,GDH   from DJ_YG UNION ALL SELECT A.SLBH,A.DJLX,A.BDCZMH AS BDCZH,A.ZSXLH,A.DJRQ,A.LIFECYCLE,N'抵押'    AS YWLX,A.GDH   from DJ_DY A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_XGDJGL C ON A.SLBH = C.ZSLBH WHERE A.XGZH IS NULL AND C.XGZH IS NULL AND C.FSLBH IS NULL UNION ALL SELECT A.SLBH,A.CFLX AS DJLX,A.CFBH AS BDCZH,N''    AS ZSXLH,A.DJSJ AS DJRQ,A.LIFECYCLE,N'查封'  AS YWLX,A.GDH   from DJ_CF A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_XGDJGL C ON A.SLBH = C.ZSLBH WHERE A.XGZH IS NULL AND C.XGZH IS NULL AND C.FSLBH IS NULL) A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_SJD C ON A.SLBH = C.SLBH WHERE B.TSTYBM IS NOT NULL " + getWhere() + " order by A.Bdczh desc, A.SLBH) t1)WHERE RN >= 1 AND RN <= 20 ORDER BY ROWNUM ASC",
         count: "SELECT COUNT(0) FROM (SELECT DISTINCT A.SLBH,A.DJLX,A.BDCZH,B.BDCDYH,A.ZSXLH,A.DJRQ,N''AS QLRMC,N''AS QLRZJH,N''AS ZT,A.GDH,NVL(C.ZL, C.TZRTXDZ) AS ZL,A.LIFECYCLE,A.YWLX,B.TSTYBM   from (SELECT SLBH,DJLX,BDCZH,ZSXLH,DJRQ,LIFECYCLE,N'权证' AS YWLX,GDH   from DJ_DJB UNION ALL SELECT SLBH,DJLX,BDCZMH AS BDCZH,ZSXLH,DJRQ,LIFECYCLE,N'预告'  AS YWLX,GDH   from DJ_YG UNION ALL SELECT A.SLBH,A.DJLX,A.BDCZMH AS BDCZH,A.ZSXLH,A.DJRQ,A.LIFECYCLE,N'抵押'    AS YWLX,A.GDH   from DJ_DY A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_XGDJGL C ON A.SLBH = C.ZSLBH WHERE A.XGZH IS NULL AND C.XGZH IS NULL AND C.FSLBH IS NULL UNION ALL SELECT A.SLBH,A.CFLX AS DJLX,A.CFBH AS BDCZH,N''    AS ZSXLH,A.DJSJ AS DJRQ,A.LIFECYCLE,N'查封'  AS YWLX,A.GDH   from DJ_CF A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_XGDJGL C ON A.SLBH = C.ZSLBH WHERE A.XGZH IS NULL AND C.XGZH IS NULL AND C.FSLBH IS NULL) A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_SJD C ON A.SLBH = C.SLBH WHERE B.TSTYBM IS NOT NULL " + getWhere() + " order by A.Bdczh desc, A.SLBH) t"
+        //使用nvl函数
+        // query: "SELECT * from (SELECT ROWNUM AS RN, t1.* from (SELECT DISTINCT A.SLBH,A.DJLX,NVL( A.BDCZH,' ') AS BDCZH,B.BDCDYH,NVL(A.ZSXLH,' ') AS ZSXLH,NVL(A.DJRQ,'') AS DJRQ,N'' AS QLRMC,N'' AS QLRZJH,N'' AS ZT,NVL(A.GDH,' ') AS GDH,NVL(C.ZL, C.TZRTXDZ) AS ZL,A.LIFECYCLE,A.YWLX,B.TSTYBM  from (SELECT SLBH,DJLX,BDCZH,ZSXLH,DJRQ,LIFECYCLE,N'权证' AS YWLX,GDH  from DJ_DJB UNION ALL SELECT SLBH,DJLX,BDCZMH AS BDCZH,ZSXLH,DJRQ,LIFECYCLE,N'预告' AS YWLX,GDH  from DJ_YG UNION ALL SELECT A.SLBH,A.DJLX,A.BDCZMH AS BDCZH,A.ZSXLH,A.DJRQ,A.LIFECYCLE,N'抵押' AS YWLX,A.GDH  from DJ_DY A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_XGDJGL C ON A.SLBH = C.ZSLBH WHERE A.XGZH IS NULL AND C.XGZH IS NULL AND C.FSLBH IS NULL UNION ALL SELECT A.SLBH,A.CFLX AS DJLX,A.CFBH AS BDCZH,N'' AS ZSXLH,A.DJSJ AS DJRQ,A.LIFECYCLE,N'查封' AS YWLX,A.GDH  from DJ_CF A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_XGDJGL C ON A.SLBH = C.ZSLBH WHERE A.XGZH IS NULL AND C.XGZH IS NULL AND C.FSLBH IS NULL) A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_SJD C ON A.SLBH = C.SLBH WHERE B.TSTYBM IS NOT NULL " + getWhere() + " order by NVL( A.BDCZH,' ') desc, A.SLBH) t1)WHERE RN >= 1 AND RN <= 20 ORDER BY ROWNUM ASC",
+        // count: "SELECT COUNT(0) FROM (SELECT DISTINCT A.SLBH,A.DJLX,NVL( A.BDCZH,' ') AS BDCZH,B.BDCDYH,NVL(A.ZSXLH,' ') AS ZSXLH,NVL(A.DJRQ,'') AS DJRQ,N'' AS QLRMC,N'' AS QLRZJH,N'' AS ZT,NVL(A.GDH,' ') AS GDH,NVL(C.ZL, C.TZRTXDZ) AS ZL,A.LIFECYCLE,A.YWLX,B.TSTYBM  from (SELECT SLBH,DJLX,BDCZH,ZSXLH,DJRQ,LIFECYCLE,N'权证' AS YWLX,GDH  from DJ_DJB UNION ALL SELECT SLBH,DJLX,BDCZMH AS BDCZH,ZSXLH,DJRQ,LIFECYCLE,N'预告' AS YWLX,GDH  from DJ_YG UNION ALL SELECT A.SLBH,A.DJLX,A.BDCZMH AS BDCZH,A.ZSXLH,A.DJRQ,A.LIFECYCLE,N'抵押' AS YWLX,A.GDH  from DJ_DY A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_XGDJGL C ON A.SLBH = C.ZSLBH WHERE A.XGZH IS NULL AND C.XGZH IS NULL AND C.FSLBH IS NULL UNION ALL SELECT A.SLBH,A.CFLX AS DJLX,A.CFBH AS BDCZH,N'' AS ZSXLH,A.DJSJ AS DJRQ,A.LIFECYCLE,N'查封' AS YWLX,A.GDH  from DJ_CF A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_XGDJGL C ON A.SLBH = C.ZSLBH WHERE A.XGZH IS NULL AND C.XGZH IS NULL AND C.FSLBH IS NULL) A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_SJD C ON A.SLBH = C.SLBH WHERE B.TSTYBM IS NOT NULL " + getWhere() + " order by NVL( A.BDCZH,' ') desc, A.SLBH) t"
+
       }
       console.log("data0", data);
       let config = {
@@ -121,7 +125,6 @@ const query = () => {
         let datas = res.data.data.query;
         let str = '';
         for (var i = 0; i < datas.length; i++) {
-
           var QLRMC = GetQLRMC(datas[i].SLBH)
 
           function GetQLRMC(sSLBH) {
@@ -133,7 +136,16 @@ const query = () => {
             })
           }
 
-          str += `<tr class="load"><td style="width:60.17px; height:37px;">${datas[i].RN}</td><td style="width:117.34px; height:37px;">${datas[i].SLBH}</td><td style="width:61.17px; height:37px;">${datas[i].DJLX}</td><td style="width:174.52px; height:37px;">${datas[i].BDCZH}</td><td style="width:174.52px; height:37px;">${datas[i].BDCDYH}</td><td style="width:120.34px; height:37px;">${datas[i].ZSXLH}</td><td style="width:108.34px; height:37px;">${datas[i].DJRQ}</td><td style="width:60.17px; height:37px;">${QLRMC}</td><td style="width:115.34px; height:37px;">${datas[i].QLRZJH}</td><td style="width:69.17px; height:37px;">${datas[i].LIFECYCLE}</td><td style="width:60.17px; height:37px;">${datas[i].GDH}</td><td style="width:185.17px; height:37px;">${datas[i].ZL}</td></tr>`
+          // str += `<tr class="load"><td style="width:60.17px; height:37px;">${datas[i].RN}</td><td style="width:117.34px; height:37px;">${datas[i].SLBH}</td><td style="width:61.17px; height:37px;">${datas[i].DJLX}</td><td style="width:174.52px; height:37px;">${datas[i].BDCZH}</td><td style="width:174.52px; height:37px;">${datas[i].BDCDYH}</td><td style="width:120.34px; height:37px;">${datas[i].ZSXLH}</td><td style="width:108.34px; height:37px;">${datas[i].DJRQ}</td><td style="width:60.17px; height:37px;">${QLRMC}</td><td style="width:115.34px; height:37px;">${datas[i].QLRZJH}</td><td style="width:69.17px; height:37px;">${datas[i].LIFECYCLE}</td><td style="width:60.17px; height:37px;">${datas[i].GDH}</td><td style="width:185.17px; height:37px;">${datas[i].ZL}</td></tr>`
+          var zt;
+          if (datas[i].LIFECYCLE == "1") {
+            zt = "历史";
+          } else if (datas[i].DJRQ == "" || datas[i].DJRQ == null) {
+            zt = "办理中";
+          } else {
+            zt = "现实";
+          }
+          str += `<tr class="load"><td style="width:59.7px; height:37px; border: 1px solid #c5c5c5; white-space: nowrap ;overflow: hidden;text-overflow: ellipsis" >${datas[i].RN}</td><td style="width:119.8px; height:37px;border: 1px solid #c5c5c5">${datas[i].SLBH}</td><td style="width:59.8px; height:37px; border: 1px solid #c5c5c5">${datas[i].DJLX}</td><td style="width:181px; height:37px; border: 1px solid #c5c5c5">${datas[i].BDCZH != null ? datas[i].BDCZH : ' '}</td><td style="width:181px; height:37px; border: 1px solid #c5c5c5"">${datas[i].BDCDYH}</td><td style="width:119.8px; height:37px; border: 1px solid #c5c5c5"">${datas[i].ZSXLH != null ? datas[i].ZSXLH : ' '}</td><td style="width:119.8px; height:37px; border: 1px solid #c5c5c5"">${datas[i].DJRQ != null ? datas[i].DJRQ : ' '}</td><td style="width:59.8px; height:37px; border: 1px solid #c5c5c5""> </td><td style="width:119.8px; height:37px; border: 1px solid #c5c5c5""> </td><td style="width:59.8px; height:37px; border: 1px solid #c5c5c5"">${zt}</td><td style="width:59.8px; height:37px; border: 1px solid #c5c5c5"">${datas[i].GDH != null ? datas[i].GDH : ' '}</td><td style="width:181px; height:37px; border: 1px solid #c5c5c5"">${datas[i].ZL != null ? datas[i].ZL : ' '}</td></tr>`
 
         }
 
@@ -214,12 +226,7 @@ const query = () => {
 
             }
 
-            if (treeSqlsDate.dycfxx[0].COUNT > 0) {
-              treedata.push(getTreeNode("按单元查封信息"));
-            }
-            if (treeSqlsDate.dydyxx[0].COUNT > 0) {
-              treedata.push(getTreeNode("按单元抵押信息"));
-            }
+
             // 加载限制性登记信息
             var slbhAndTstybm;
             for (let i = 0; i < ArrQZXX.length; i++) {
@@ -244,7 +251,7 @@ const query = () => {
                       //注销信息
                       var zx = resXzDjXx.zx;
                       console.log("zxzx", zx)
-                      if (zx.length != 0) {
+                      if (zx.length > 0) {
                         for (var j = 0; j < zx.length; j++) {
                           var zxSlbh = Format(zx[j].SLBH);
                           slbhAndTstybm = zxSlbh + ";" + ArrKey[1];
@@ -267,7 +274,7 @@ const query = () => {
                       }
                       //抵押信息
                       var dy = resXzDjXx.dy;
-                      if (dy.length != 0) {
+                      if (dy.length > 0) {
                         for (var j = 0; j < dy.length; j++) {
                           var dyName = "抵押-" + Format(dy[j].BDCZMH);
                           if (Format(dy[j].LIFECYCLE) == "1") {
@@ -287,14 +294,13 @@ const query = () => {
                             lcjson: "",
                             key: ""
                           };
-                          console.log("dy-slbh", ArrKey[0])
-                          console.log("dy-slbhyy", dy[0].SLBH)
+
                           child.push(child2);
                         }
                       }
                       //注销抵押信息
                       var zxdy = resXzDjXx.zxdy;
-                      if (zxdy.length != 0) {
+                      if (zxdy.length > 0) {
                         for (var j = 0; j < zxdy.length; j++) {
                           var zxdySlbh = Format(zxdy[j].SLBH);
                           //TODO 没有存储受理编号和图书统一编码
@@ -303,7 +309,7 @@ const query = () => {
                             zxdyZH = zxdySlbh;
                           }
                           var child2 = {
-                            label: zxdyZH,
+                            label: "抵押注销-" + zxdyZH,
                             icon: 'iconfont icon-dengjizheng',
                             style: 'color: #f0a830;font-size: 23px;',
                             detail: "",
@@ -316,7 +322,7 @@ const query = () => {
                       }
                       //查封信息
                       var cf = resXzDjXx.cf;
-                      if (cf.length != 0) {
+                      if (cf.length > 0) {
                         for (var j = 0; j < cf.length; j++) {
                           var cflx = Format(cf[j].CFLX);
                           if (cflx == "" || cflx == null) {
@@ -344,9 +350,30 @@ const query = () => {
                         }
                       }
                       //注销查封信息
+                      var zxcf = resXzDjXx.zxcf;
+                      if (zxcf.length > 0) {
+                        for (var j = 0; j < zxcf.length; j++) {
+                          var zxcfSlbh = Format(zxcf[j].ZLBH);
+                          //TODO 没有存储受理编号和图书统一编码
+                          var zxcfZH = Format(zxcf[j].XGZH);
+                          if (zxcfZH == "" || zxcfZH == null) {
+                            zxcfZH = zxcfSlbh
+                          }
+                          var child2 = {
+                            label: "解封-" + zxcfZH,
+                            icon: 'iconfont icon-dengjizheng',
+                            style: 'color: #f0a830;font-size: 23px;',
+                            detail: "",
+                            lcmc: "BLDJ",
+                            lcjson: "",
+                            key: ""
+                          };
+                          child.push(child2);
+                        }
+                      }
                       //异议信息
                       var yy = resXzDjXx.yy;
-                      if (yy.length != 0) {
+                      if (yy.length > 0) {
                         for (var j = 0; j < yy.length; j++) {
                           var yyName = "异议-" + Format(yy[j].BDCDYH);
                           if (Format(yy[j].LIFECYCLE) == "1") {
@@ -376,7 +403,27 @@ const query = () => {
 
                       }
                       //注销异议信息
-
+                      var zxyy = resXzDjXx.zxyy;
+                      if (zxyy.length > 0) {
+                        for (var j = 0; j < zxyy.length; j++) {
+                          var zxyySlbh = Format(zxyy[j].SBLH)
+                          //TODO 没有存储受理编号和图书统一编码
+                          var zxyyZH = Format(zxyy[i].XGZH)
+                          if (zxyyZH == "" || zxyyZH == null) {
+                            zxyyZH = zxyySlbh
+                          }
+                          var child2 = {
+                            label: "异议注销-" + zxyyZH,
+                            icon: 'iconfont icon-dengjizheng',
+                            style: 'color: #f0a830;font-size: 23px;',
+                            detail: "",
+                            lcmc: "BLDJ",
+                            lcjson: "",
+                            key: ""
+                          };
+                          child.push(child2);
+                        }
+                      }
                     }
                 )
               }
@@ -385,7 +432,93 @@ const query = () => {
             }
             //加载限制性登记信息 end
 
+            //加载按单元查封信息   KFQFCCF201810120002
+            if (treeSqlsDate.dycfxx[0].COUNT > 0) {
+              var dycfxxSqls = {
+                dycfxx: "SELECT DISTINCT B.TSTYBM,A.CFBH,A.LIFECYCLE,A.DJSJ,A.SLBH,A.CFLX FROM DJ_CF A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_XGDJGL C ON A.SLBH = C.ZSLBH WHERE A.XGZH IS NULL AND C.XGZH IS NULL AND C.FSLBH IS NULL AND TSTYBM = '" + TSTYBM + "' ORDER BY NVL(A.LIFECYCLE,0),A.DJSJ",
+              }
+              let child = [];
+              var ArrDYCFXX = new Array();
+              axios.post("http://127.0.0.1:8079/test/sqls", dycfxxSqls, config).then((res) => {
+                    console.log("加载按单元查封信息", res.data.data)
+                    var resdycfxx = res.data.data.dycfxx;
+                    if (resdycfxx.length > 0) {
+                      for (var j = 0; j < resdycfxx.length; j++) {
+                        var dycfxx_TSTYBM = Format(resdycfxx[j].TSTYBM);
+                        var dycfxx_SLBH = Format(resdycfxx[j].SLBH);
+                        var dycfxx_CFLX = Format(resdycfxx[j].CFLX);
+                        if (dycfxx_CFLX == "") {
+                          dycfxx_CFLX = "查封";
+                        }
+                        var dycfxxName = dycfxx_CFLX + "-" + Format(resdycfxx[j].CFBH);
+                        if (Format(resdycfxx[j].LIFECYCLE) == "1") {
+                          dycfxxName += "(历史)";
+                        } else if (Format(resdycfxx[j].DJSJ) == "") {
+                          dycfxxName += "(办理中)";
+                        } else {
+                          dycfxxName += "(现实)";
+                        }
+                        var st = dycfxx_SLBH + ";" + dycfxx_TSTYBM;
+                        ArrDYCFXX[j] = st;
+                        //TODO 没有存储受理编号和图书统一编码
+                        var child2 = {
+                          label: dycfxxName,
+                          icon: 'iconfont icon-dengjizheng',
+                          style: 'color: #f0a830;font-size: 23px;',
+                          detail: "",
+                          lcmc: "BLDJ",
+                          lcjson: "",
+                          key: ""
+                        };
+                        child.push(child2);
+                      }
 
+                    }
+                    //加载按单元查封注销信息
+                    for (var j = 0; j < ArrDYCFXX; j++) {
+                      var dycfxx = Format(ArrDYCFXX[j]);
+                      if (dycfxx != "") {
+                        var dycfSLBH = dycfxx.split(";");
+                        var dycfzxSqls = {
+                          dycfzx: "SELECT Nvl(A.XGZH,B.XGZH) AS XGZH,SLBH FROM DJ_XGDJZX A LEFT JOIN DJ_XGDJGL B ON A.SLBH = B.ZSLBH WHERE B.FSLBH = '" + dycfSLBH[0] + "' AND ROWNUM < 2",
+                        }
+                        axios.post("http://127.0.0.1:8079/test/sqls", dycfzxSqls, config).then((res) => {
+                          var resdycfzx = res.data.data.dycfzx;
+                          if (resdycfzx.length > 0) {
+                            for (var n = 0; n < resdycfzx.length; n++) {
+                              var dycfzx_SLBH = Format(resdycfzx[n].SLBH);
+                              //TODO 没有存储受理编号和图书统一编码
+                              var dycfzx_ZH = Format(resdycfzx[n].XGZH);
+                              if (dycfzx_ZH == "") {
+                                dycfzx_ZH = dycfzx_SLBH;
+                              }
+                              var child2 = {
+                                label: "解封-" + dycfzx_ZH,
+                                icon: 'iconfont icon-dengjizheng',
+                                style: 'color: #f0a830;font-size: 23px;',
+                                detail: "",
+                                lcmc: "BLDJ",
+                                lcjson: "",
+                                key: ""
+                              };
+                              child.push(child2);
+                            }
+
+                          }
+                        })
+                      }
+                    }
+                    treedata.push(getTreeNode("按单元查封信息", child));
+
+                  }
+              )
+            }
+            if (treeSqlsDate.dydyxx[0].COUNT > 0) {
+              treedata.push(getTreeNode("按单元抵押信息"));
+            }
+            //加载按单元查封注销信息
+            //加载按单元抵押信息
+            //加载按单元抵押注销信息
             console.log("ArrQZXX", ArrQZXX)
 
             treeData.value = treedata
