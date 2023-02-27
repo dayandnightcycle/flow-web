@@ -119,7 +119,7 @@ const query = () => {
         headers: {"Content-Type": "application/json"},
       };
 
-
+      // axios.post("http://127.0.0.1:8079/test/sqls", data, config).then((res) => {
       axios.post("http://127.0.0.1:8079/test/sqls", data, config).then((res) => {
         console.log("data", res.data.data);
         let datas = res.data.data.query;
@@ -170,6 +170,7 @@ const query = () => {
     }
   }, 1000)
 
+  //获取树结构信息列表
   function loadTreeInfo(TSTYBM) {
 
     var treeSqls = {
@@ -423,7 +424,7 @@ const query = () => {
                         })
                       }
                     }
-                    console.log("按单元查封信息tree", getTreeNode("按单元查封信息", null, null, child))
+                    console.log("按单元查封信息", getTreeNode("按单元查封信息", null, null, child))
                     treedata.push(getTreeNode("按单元查封信息", null, null, child));
                   }
               )
@@ -433,15 +434,67 @@ const query = () => {
               var dydyxxSqls = {
                 dydyxx: "SELECT DISTINCT B.TSTYBM,A.BDCZMH,A.LIFECYCLE,A.DJRQ,A.SLBH FROM DJ_DY A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_XGDJGL C ON A.SLBH = C.ZSLBH WHERE A.XGZH IS NULL AND C.XGZH IS NULL AND C.FSLBH IS NULL AND TSTYBM = '" + TSTYBM + "' ORDER BY NVL(A.LIFECYCLE,0),A.DJRQ"
               }
-              let child = []
-              treedata.push(getTreeNode("按单元抵押信息"));
+              let child = [];
+              var ArrDYDYXX = new Array();
+              axios.post("http://127.0.0.1:8079/test/sqls", dydyxxSqls, config).then((res) => {
+                console.log("加载按单元抵押信息", res.data.data)
+                var resdydyxx = res.data.data.dydyxx;
+                if (resdydyxx.length > 0) {
+                  for (var j = 0; j < resdydyxx.length; j++) {
+                    var dydyxx_TSTYBM = Format(resdydyxx[j].TSTYBM);
+                    var dydyxx_SLBH = Format(resdydyxx[j].SLBH);
+                    var dydyxx_BDCZH = Format(resdydyxx[j].BDCZMH);
+                    var dydyxx_LIFECYCLE = Format(resdydyxx[j].LIFECYCLE);
+                    var dydyxx_DJRQ = Format(resdydyxx[j].DJRQ);
+                    if (dydyxx_BDCZH == "") {
+                      dydyxx_BDCZH = dydyxx_SLBH;
+                    }
+                    var dydyxx_XX = "抵押-";
+                    dydyxx_XX += dydyxx_BDCZH;
+                    if (dydyxx_LIFECYCLE == "1") {
+                      dydyxx_XX += "(历史)";
+                    } else if (dydyxx_DJRQ == "") {
+                      dydyxx_XX += "(办理中)";
+                    } else {
+                      dydyxx_XX += "(现实)";
+                    }
+                    var st = dydyxx_SLBH + ";" + dydyxx_TSTYBM;
+                    ArrDYDYXX[j] = st;
+                    child.push((getTreeChildrenNode(dydyxx_XX, dydyxx_SLBH, dydyxx_TSTYBM)));
+                  }
+                }
+                //加载按单元抵押注销信息
+                for (var j = 0; j < ArrDYDYXX.length; j++) {
+                  var dydyxx = Format(ArrDYDYXX[j]);
+                  if (dydyxx != "") {
+                    var dydySLBH_TSTYBM = dydyxx.split(";");
+                    var dydyzxSqls = {
+                      dydyzx: "SELECT Nvl(A.XGZH,B.XGZH) AS XGZH,SLBH FROM DJ_XGDJZX A LEFT JOIN DJ_XGDJGL B ON A.SLBH = B.ZSLBH WHERE B.FSLBH = '" + dydySLBH_TSTYBM[0] + "' AND ROWNUM < 2"
+                    }
+                    axios.post("http://127.0.0.1:8079/test/sqls", dydyzxSqls, config).then((res) => {
+                      var resdydyzx = res.data.data.dydyzx;
+                      if (resdydyzx.length > 0) {
+                        for (var n = 0; n < resdydyzx.length; n++) {
+                          var dydyzx_SLBH = Format(resdydyzx[n].SLBH);
+                          var dydyzx_ZH = Format(resdydyzx[n].XGZH);
+                          if (dydyzx_ZH == "") {
+                            dydyzx_ZH = dydyzx_SLBH;
+                          }
+                          child.push(getTreeChildrenNode("抵押注销-" + dydyzx_ZH, dydyzx_SLBH, dydySLBH_TSTYBM[1]));
+                        }
+                      }
+                    })
+
+                  }
+                }
+                console.log("按单元抵押信息", getTreeNode("按单元抵押信息", null, null, child))
+                treedata.push(getTreeNode("按单元抵押信息", null, null, child));
+              })
             }
-            //加载按单元查封注销信息
-            //加载按单元抵押注销信息
+
             console.log("ArrQZXX", ArrQZXX)
 
             treeData.value = treedata
-            console.log("treeData", treeData);
             setTimeout(() => {
               zsdialogVisible.value = true;
             }, 1000);
@@ -450,9 +503,12 @@ const query = () => {
         }
     )
 
-
   }
 
+//查询续查封信息
+  function treeZS_OnClick() {
+
+  }
 
   function getTreeNode(NodeName, SLBH, TSTYBM, children) {
 
