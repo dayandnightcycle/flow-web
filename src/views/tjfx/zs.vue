@@ -9,14 +9,14 @@
       <!--               class="ywdialog" style="margin-left: 400px;width: 1200px;">-->
       <!--追溯详细信息-->
       <div style="display:flex;flex-direction:column;width: 200px;float: left">
-        <el-tree :data="treeData" :props="defaultProps" @node-click="handleNodeClick" style="z-index: 3">
+        <el-tree :data="treeData" :props="defaultProps" @node-click="handleNodeClick">
           <template #default="{ data }">
             <span :class="data.icon" :style="data.style"></span>
             {{ data.label }}
           </template>
         </el-tree>
       </div>
-      <div style="display:flex;width:900px;float: left">
+      <div style="display:flex;width:900px;float: left;z-index: 2">
         <!--空白页-->
         <!--        <v-form-render :form-json="formJson1" :form-data="formData1" :option-data="optionData1" ref="vFormRef2">-->
 
@@ -147,29 +147,89 @@ const handleNodeClick = (data) => {
 
         }
     axios.post("http://127.0.0.1:8079/test/sqls", DQSJXJ, config).then((res) => {
-      console.log("dangqina", res.data)
-      var DQData = res.data.DQquery;
-      var SJData = res.data.SJquery;
-      var XJData = res.data.XJquery;
+      console.log("DQSJXJ", res.data)
+      var DQData = res.data.data.DQquery;
+      var SJData = res.data.data.SJquery;
+      var XJData = res.data.data.XJquery;
       var max = DQData.length;
-      if (SJData.length > max) {
+      if
+      (SJData.length > max) {
         max = SJData.length;
       } else if (XJData.length > max) {
         max = XJData.length;
       }
+
+
       //当前信息start
       if (DQData.length > 0) {
+        var DQInfo = "";
+        var secColumn = document.getElementsByClassName("dq")[0];
+        secColumn.style = "font-size:12px;background-color:#D7FFD7;text-align:left;color:#000000";
+        console.log("secsec", secColumn);
         for (var i = 0; i < DQData.length; i++) {
+          DQInfo = Format(DQData[i].SLBH) + "<br>" + Format(DQData[i].DJLX) + "<br>" + Format(DQData[i].BDCDYH) + "<br>" + Format(DQData[i].BDCZH) + "<br>";
+          if (type != "注销") {
+            if (Format(DQData[i].LIFECYCLE) == "1") {
+              DQInfo += "状态: 历史 ";
+            } else if (Format(DQData[i].DJRQ) == "") {
+              DQInfo += "状态: 办理中 ";
+            } else {
+              DQInfo += "状态: 现实 ";
+            }
+          }
 
         }
+        secColumn.innerHTML = DQInfo;
       }
       //当前信息end
+      //上级信息start
+      if (SJData.length > 0) {
+        var SJInfo = "";
+        var firColumn = document.getElementsByClassName("sj")[0];
+        firColumn.style = "font-size:12px;text-align:left;color:#000000";
 
+        console.log("firColumn", firColumn);
+        for (var i = 0; i < SJData.length; i++) {
+          SJInfo += Format(SJData[i].SLBH) + "<br>" + Format(SJData[i].DJLX) + "<br>" + Format(SJData[i].BDCDYH) + "<br>" + Format(SJData[i].BDCZH) + "<br>";
+
+          if (Format(SJData[i].LIFECYCLE) == "1") {
+            SJInfo += "状态: 历史 ";
+          } else if (Format(SJData[i].DJRQ) == "") {
+            SJInfo += "状态: 办理中 ";
+          } else {
+            SJInfo += "状态: 现实 ";
+          }
+          SJInfo += "<br>";
+        }
+
+        firColumn.innerHTML = SJInfo;
+      }
+      //上级信息end
+      //下级信息start
+      if (XJData.length > 0) {
+        var XJInfo = "";
+        var thiColumn = document.getElementsByClassName("xj")[0];
+        thiColumn.style = "font-size:12px;text-align:left;color:#000000";
+
+        console.log("thiColumn", thiColumn);
+        for (var i = 0; i < XJData.length; i++) {
+          XJInfo += Format(XJData[i].SLBH) + "<br>" + Format(XJData[i].DJLX) + "<br>" + Format(XJData[i].BDCDYH) + "<br>" + Format(XJData[i].BDCZH) + "<br>";
+
+          if (Format(XJData[i].LIFECYCLE) == "1") {
+            XJInfo += "状态: 历史 ";
+          } else if (Format(XJData[i].DJRQ) == "") {
+            XJInfo += "状态: 办理中 ";
+          } else {
+            XJInfo += "状态: 现实 ";
+          }
+          XJInfo += "<br>";
+        }
+        console.log("xiaji_INFO", XJInfo)
+        thiColumn.innerHTML = XJInfo;
+      }
+      //下级信息end
     })
-    //上级信息start
-    //上级信息end
-    //下级信息start
-    //下级信息end
+
   }
 
   function Format(sVal) {

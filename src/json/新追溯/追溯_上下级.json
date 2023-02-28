@@ -277,6 +277,136 @@
         "customClass": []
       },
       "id": "table44272"
+    },
+    {
+      "key": 116129,
+      "type": "table",
+      "category": "container",
+      "icon": "table",
+      "rows": [
+        {
+          "cols": [
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": false,
+              "options": {
+                "name": "table-cell-29331",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 2,
+                "rowspan": 1,
+                "customClass": [
+                  "sj"
+                ]
+              },
+              "id": "table-cell-29331"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-71807",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 2,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-71807"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": false,
+              "options": {
+                "name": "table-cell-112015",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 2,
+                "rowspan": 1,
+                "customClass": [
+                  "dq"
+                ]
+              },
+              "id": "table-cell-112015"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-75347",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 2,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-75347"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": false,
+              "options": {
+                "name": "table-cell-91541",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 2,
+                "rowspan": 1,
+                "customClass": [
+                  "xj"
+                ]
+              },
+              "id": "table-cell-91541"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-111278",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 2,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-111278"
+            }
+          ],
+          "id": "table-row-47627",
+          "merged": false
+        }
+      ],
+      "options": {
+        "name": "table30812",
+        "hidden": false,
+        "customClass": [
+          "sdx"
+        ]
+      },
+      "id": "table30812"
     }
   ],
   "formConfig": {
@@ -287,7 +417,7 @@
     "labelPosition": "left",
     "size": "",
     "labelAlign": "label-center-align",
-    "cssCode": "",
+    "cssCode": ".dq{\n  \n}\n.sj{\n  \n}\n.xj{\n  \n}",
     "customClass": "",
     "functions": "",
     "layoutType": "PC",
