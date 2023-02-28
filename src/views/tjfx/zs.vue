@@ -167,7 +167,7 @@ const handleNodeClick = (data) => {
         secColumn.style = "font-size:12px;background-color:#D7FFD7;text-align:left;color:#000000";
         console.log("secsec", secColumn);
         for (var i = 0; i < DQData.length; i++) {
-          DQInfo = Format(DQData[i].SLBH) + "<br>" + Format(DQData[i].DJLX) + "<br>" + Format(DQData[i].BDCDYH) + "<br>" + Format(DQData[i].BDCZH) + "<br>";
+          DQInfo += Format(DQData[i].SLBH) + "<br>" + Format(DQData[i].DJLX) + "<br>" + Format(DQData[i].BDCDYH) + "<br>" + Format(DQData[i].BDCZH) + "<br>";
           if (type != "注销") {
             if (Format(DQData[i].LIFECYCLE) == "1") {
               DQInfo += "状态: 历史 ";
@@ -176,6 +176,8 @@ const handleNodeClick = (data) => {
             } else {
               DQInfo += "状态: 现实 ";
             }
+            DQInfo += "<hr>";
+
           }
 
         }
@@ -199,7 +201,7 @@ const handleNodeClick = (data) => {
           } else {
             SJInfo += "状态: 现实 ";
           }
-          SJInfo += "<br>";
+          SJInfo += "<hr>";
         }
 
         firColumn.innerHTML = SJInfo;
@@ -222,7 +224,7 @@ const handleNodeClick = (data) => {
           } else {
             XJInfo += "状态: 现实 ";
           }
-          XJInfo += "<br>";
+          XJInfo += "<hr>";
         }
         console.log("xiaji_INFO", XJInfo)
         thiColumn.innerHTML = XJInfo;
