@@ -1,0 +1,301 @@
+{
+  "widgetList": [
+    {
+      "key": 108729,
+      "type": "table",
+      "category": "container",
+      "icon": "table",
+      "rows": [
+        {
+          "cols": [
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [
+                {
+                  "key": 16599,
+                  "type": "static-text",
+                  "icon": "static-text",
+                  "formItemFlag": false,
+                  "options": {
+                    "name": "statictext56415",
+                    "columnWidth": "200px",
+                    "hidden": false,
+                    "textContent": "上级",
+                    "customClass": [],
+                    "onCreated": "",
+                    "onMounted": "",
+                    "label": "static-text"
+                  },
+                  "id": "statictext56415"
+                }
+              ],
+              "merged": false,
+              "options": {
+                "name": "table-cell-68007",
+                "cellWidth": "",
+                "cellHeight": "10px",
+                "colspan": 4,
+                "rowspan": 1,
+                "customClass": []
+              },
+              "id": "table-cell-68007"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-71495",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 4,
+                "rowspan": 1,
+                "customClass": []
+              },
+              "id": "table-cell-71495"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-11944",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 4,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-11944"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-83638",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 4,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-83638"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [
+                {
+                  "key": 16599,
+                  "type": "static-text",
+                  "icon": "static-text",
+                  "formItemFlag": false,
+                  "options": {
+                    "name": "statictext12028",
+                    "columnWidth": "200px",
+                    "hidden": false,
+                    "textContent": "当前",
+                    "customClass": "",
+                    "onCreated": "",
+                    "onMounted": "",
+                    "label": "static-text"
+                  },
+                  "id": "statictext12028"
+                }
+              ],
+              "merged": false,
+              "options": {
+                "name": "table-cell-101240",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 4,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-101240"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-40107",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 4,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-40107"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-68968",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 4,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-68968"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-23863",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 4,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-23863"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [
+                {
+                  "key": 16599,
+                  "type": "static-text",
+                  "icon": "static-text",
+                  "formItemFlag": false,
+                  "options": {
+                    "name": "statictext69900",
+                    "columnWidth": "200px",
+                    "hidden": false,
+                    "textContent": "下级",
+                    "customClass": [],
+                    "onCreated": "",
+                    "onMounted": "",
+                    "label": "static-text"
+                  },
+                  "id": "statictext69900"
+                }
+              ],
+              "merged": false,
+              "options": {
+                "name": "table-cell-97604",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 4,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-97604"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-100453",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 4,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-100453"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-43655",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 4,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-43655"
+            },
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [],
+              "merged": true,
+              "options": {
+                "name": "table-cell-51624",
+                "cellWidth": "",
+                "cellHeight": "",
+                "colspan": 4,
+                "rowspan": 1,
+                "customClass": ""
+              },
+              "id": "table-cell-51624"
+            }
+          ],
+          "id": "table-row-32472",
+          "merged": false
+        }
+      ],
+      "options": {
+        "name": "table44272",
+        "hidden": false,
+        "customClass": []
+      },
+      "id": "table44272"
+    }
+  ],
+  "formConfig": {
+    "modelName": "formData",
+    "refName": "vForm",
+    "rulesName": "rules",
+    "labelWidth": 80,
+    "labelPosition": "left",
+    "size": "",
+    "labelAlign": "label-center-align",
+    "cssCode": "",
+    "customClass": "",
+    "functions": "",
+    "layoutType": "PC",
+    "jsonVersion": 3,
+    "onFormCreated": "",
+    "onFormMounted": "",
+    "onFormDataChange": "",
+    "dataSources": [],
+    "onFormValidate": ""
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "widgetList": [
+    {
+      "key": 112491,
+      "type": "table",
+      "category": "container",
+      "icon": "table",
+      "rows": [
+        {
+          "cols": [
+            {
+              "type": "table-cell",
+              "category": "container",
+              "icon": "table-cell",
+              "internal": true,
+              "widgetList": [
+                {
+                  "key": 41387,
+                  "type": "static-text",
+                  "icon": "static-text",
+                  "formItemFlag": false,
+                  "options": {
+                    "name": "statictext74563",
+                    "columnWidth": "200px",
+                    "hidden": false,
+                    "textContent": "点击左侧节点查看登记信息！",
+                    "customClass": [
+                      "tishi"
+                    ],
+                    "onCreated": "",
+                    "onMounted": "",
+                    "label": "static-text"
+                  },
+                  "id": "statictext74563"
+                }
+              ],
+              "merged": false,
+              "options": {
+                "name": "table-cell-14467",
+                "cellWidth": "400px",
+                "cellHeight": "520px",
+                "colspan": 1,
+                "rowspan": 1,
+                "customClass": []
+              },
+              "id": "table-cell-14467"
+            }
+          ],
+          "id": "table-row-24076",
+          "merged": false
+        }
+      ],
+      "options": {
+        "name": "table55773",
+        "hidden": false,
+        "customClass": ""
+      },
+      "id": "table55773"
+    }
+  ],
+  "formConfig": {
+    "modelName": "formData",
+    "refName": "vForm",
+    "rulesName": "rules",
+    "labelWidth": 80,
+    "labelPosition": "left",
+    "size": "",
+    "labelAlign": "label-center-align",
+    "cssCode": ".tishi{\n  font-family:\"宋体\";\n  color: #ff0000;\n  text-align: center;\n  font-size: 35px;\n}\n.zuoce{\n  display: none!important;\n}",
+    "customClass": [],
+    "functions": "",
+    "layoutType": "PC",
+    "jsonVersion": 3,
+    "dataSources": [],
+    "onFormCreated": "",
+    "onFormMounted": "",
+    "onFormDataChange": "",
+    "onFormValidate": ""
+  }
+}

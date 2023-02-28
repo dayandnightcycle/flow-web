@@ -2,36 +2,62 @@
   <div>
     <v-form-render :form-json="formJson" :form-data="formData" :option-data="optionData" ref="vFormRef">
     </v-form-render>
+
     <el-dialog v-model="zsdialogVisible" title="不动产追溯" width="1000px !important" :before-close="dialogVisible = false"
                class="ywdialog" style="margin-left: 400px;width: 1200px;">
-
-
-      <div style="display:flex;flex-direction:column">
-        <el-tree :data="treeData" :props="defaultProps" @node-click="handleNodeClick">
+      <!--    <el-dialog v-model="zsdialogVisible" title="不动产追溯" :width="dialogwidth" :before-close="dialogVisible = false"-->
+      <!--               class="ywdialog" style="margin-left: 400px;width: 1200px;">-->
+      <!--追溯详细信息-->
+      <div style="display:flex;flex-direction:column;width: 200px;float: left">
+        <el-tree :data="treeData" :props="defaultProps" @node-click="handleNodeClick" style="z-index: 3">
           <template #default="{ data }">
             <span :class="data.icon" :style="data.style"></span>
             {{ data.label }}
           </template>
         </el-tree>
+      </div>
+      <div style="display:flex;width:900px;float: left">
+        <!--空白页-->
+        <!--        <v-form-render :form-json="formJson1" :form-data="formData1" :option-data="optionData1" ref="vFormRef2">-->
+
+        <!--        </v-form-render>-->
+        <v-form-render :form-json="formJson1" :form-data="formData1" :option-data="optionData1" ref="shangxiaji">
+
+        </v-form-render>
 
       </div>
 
 
     </el-dialog>
   </div>
+
 </template>
 <script setup>
 import {onMounted, reactive, ref} from "vue";
-import zsjson from '../../json/新追溯/追溯_主页.json'
+import zsjson from '../../json/新追溯/追溯_主页.json';
+import ji from '../../json/新追溯/追溯_上下级.json';
 
 const formJson = reactive({});
 const formData = reactive({});
 const optionData = reactive({});
+const formJson1 = reactive({});
+const formData1 = reactive({});
+const optionData1 = reactive({});
+
+
 let vFormRef = ref(null);
+let vFormRef2 = ref(null);
+let shangxiaji = ref(null);
+
 const tstybmdata = ref();
 const zsdialogVisible = ref(false)
 const zs = () => {
   vFormRef.value.setFormJson(zsjson);
+
+}
+const dialogjson = () => {
+  // vFormRef2.value.setFormJson(xxxxjson);
+  shangxiaji.value.setFormJson(ji);
 
 }
 //树结构数据
@@ -41,7 +67,120 @@ const defaultProps = {
   label: 'label',
 }
 const handleNodeClick = (data) => {
+  let label = data.label;
+  let slbh = data.slbh;
+  let ywlx = "";
+  let syt;// 二维数组存储slbh ywlx tstybm
+  if (Format(label) != "") {
+    if (label.indexOf("楼盘-") != -1) {
+      showLPBInfo(slbh);
+    } else if (label.indexOf("抵押-") != -1) {
+      showZSData(slbh, "抵押")
+    } else if (label.indexOf("查封-") != -1) {
+      showZSData(slbh, "查封")
+    } else if (label.indexOf("解封-") != -1) {
+      showZSData(slbh, "解封")
+    } else if (label.indexOf("异议-") != -1) {
+      showZSData(slbh, "异议")
+    } else if (label.indexOf("注销-") != -1) {
+      showZSData(slbh, "注销")
+    } else if (label.indexOf("预告-") != -1) {
+      showZSData(slbh, "预告")
+    } else {
+      showZSData(slbh, "证书")
+    }
+  }
+
+  function showZSData(slbh, type) {
+    var DQSql = "";
+    var SJSql = "";
+    var XJSql = "";
+    if (type == "解封") {
+      DQSql = "SELECT DISTINCT A.SLBH,Nvl(A.DJLX,'解封登记') AS DJLX,B.BDCDYH,Nvl(C.XGZH,A.XGZH),N'解封' AS YWLX,B.TSTYBM FROM DJ_XGDJZX A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_XGDJGL C ON A.SLBH = C.ZSLBH WHERE A.SLBH = '" + slbh + "' AND ROWNUM < 2";
+    } else if (type == "注销") {
+      DQSql = "SELECT DISTINCT A.SLBH,Nvl(A.DJLX,'注销登记') AS DJLX,B.BDCDYH,Nvl(C.XGZH,A.XGZH),N'注销' AS YWLX,B.TSTYBM FROM DJ_XGDJZX A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_XGDJGL C ON A.SLBH = C.ZSLBH WHERE A.SLBH = '" + slbh + "' AND ROWNUM < 2";
+    } else {
+      DQSql = "SELECT DISTINCT A.SLBH,A.DJLX,B.BDCDYH,A.BDCZH,A.LIFECYCLE,A.DJRQ,N'权证' AS YWLX,B.TSTYBM FROM DJ_DJB A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH WHERE A.SLBH = '" + slbh + "'";
+      SJSql = "SELECT DISTINCT A.SLBH,A.DJLX,B.BDCDYH,A.BDCZH,A.LIFECYCLE,A.DJRQ,N'权证' AS YWLX,B.TSTYBM FROM DJ_DJB A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH WHERE A.SLBH IN(SELECT FSLBH FROM DJ_XGDJGL WHERE ZSLBH = '" + slbh + "') ";
+      XJSql = "SELECT DISTINCT A.SLBH,A.DJLX,B.BDCDYH,A.BDCZH,A.LIFECYCLE,A.DJRQ,N'权证' AS YWLX,B.TSTYBM FROM DJ_DJB A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH WHERE A.SLBH IN(SELECT ZSLBH FROM DJ_XGDJGL WHERE FSLBH = '" + slbh + "') ";
+
+      DQSql += " UNION ALL ";
+      SJSql += " UNION ALL ";
+      XJSql += " UNION ALL ";
+
+      DQSql += " SELECT DISTINCT A.SLBH,A.DJLX,B.BDCDYH,A.BDCZMH AS BDCZH,A.LIFECYCLE,A.DJRQ,N'预告' AS YWLX,B.TSTYBM FROM DJ_YG A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH WHERE A.SLBH = '" + slbh + "'";
+      SJSql += " SELECT DISTINCT A.SLBH,A.DJLX,B.BDCDYH,A.BDCZMH AS BDCZH,A.LIFECYCLE,A.DJRQ,N'预告' AS YWLX,B.TSTYBM FROM DJ_YG A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH WHERE A.SLBH IN(SELECT FSLBH FROM DJ_XGDJGL WHERE ZSLBH = '" + slbh + "') ";
+      XJSql += " SELECT DISTINCT A.SLBH,A.DJLX,B.BDCDYH,A.BDCZMH AS BDCZH,A.LIFECYCLE,A.DJRQ,N'预告' AS YWLX,B.TSTYBM FROM DJ_YG A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH WHERE A.SLBH IN(SELECT ZSLBH FROM DJ_XGDJGL WHERE FSLBH = '" + slbh + "') ";
+
+      DQSql += " UNION ALL ";
+      SJSql += " UNION ALL ";
+      XJSql += " UNION ALL ";
+
+      DQSql += " SELECT DISTINCT A.SLBH,A.DJLX,B.BDCDYH,A.BDCZMH AS BDCZH,A.LIFECYCLE,A.DJRQ,N'抵押' AS YWLX,B.TSTYBM FROM DJ_DY A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH WHERE A.SLBH = '" + slbh + "'";
+      SJSql += " SELECT DISTINCT A.SLBH,A.DJLX,B.BDCDYH,A.BDCZMH AS BDCZH,A.LIFECYCLE,A.DJRQ,N'抵押' AS YWLX,B.TSTYBM FROM DJ_DY A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH WHERE A.SLBH IN(SELECT FSLBH FROM DJ_XGDJGL WHERE ZSLBH = '" + slbh + "') ";
+      XJSql += " SELECT DISTINCT A.SLBH,A.DJLX,B.BDCDYH,A.BDCZMH AS BDCZH,A.LIFECYCLE,A.DJRQ,N'抵押' AS YWLX,B.TSTYBM FROM DJ_DY A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH WHERE A.SLBH IN(SELECT ZSLBH FROM DJ_XGDJGL WHERE FSLBH = '" + slbh + "') ";
+
+      DQSql += " UNION ALL ";
+      SJSql += " UNION ALL ";
+      XJSql += " UNION ALL ";
+
+      DQSql += " SELECT DISTINCT A.SLBH,A.CFLX,B.BDCDYH,A.CFBH AS BDCZH,A.LIFECYCLE,A.DJSJ AS DJRQ,N'查封' AS YWLX,B.TSTYBM FROM DJ_CF A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH WHERE A.SLBH = '" + slbh + "'";
+      SJSql += " SELECT DISTINCT A.SLBH,A.CFLX,B.BDCDYH,A.CFBH AS BDCZH,A.LIFECYCLE,A.DJSJ AS DJRQ,N'查封' AS YWLX,B.TSTYBM FROM DJ_CF A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH WHERE A.SLBH IN(SELECT FSLBH FROM DJ_XGDJGL WHERE ZSLBH = '" + slbh + "') ";
+      XJSql += " SELECT DISTINCT A.SLBH,A.CFLX,B.BDCDYH,A.CFBH AS BDCZH,A.LIFECYCLE,A.DJSJ AS DJRQ,N'查封' AS YWLX,B.TSTYBM FROM DJ_CF A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH WHERE A.SLBH IN(SELECT ZSLBH FROM DJ_XGDJGL WHERE FSLBH = '" + slbh + "') ";
+
+      DQSql += " UNION ALL ";
+      SJSql += " UNION ALL ";
+      XJSql += " UNION ALL ";
+
+      DQSql += " SELECT DISTINCT A.SLBH,N'异议登记' AS DJLX,B.BDCDYH,A.BDCZMH AS BDCZH,A.LIFECYCLE,A.DJRQ,N'异议' AS YWLX,B.TSTYBM FROM DJ_YY A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH WHERE A.SLBH = '" + slbh + "'";
+      SJSql += " SELECT DISTINCT A.SLBH,N'异议登记' AS DJLX,B.BDCDYH,A.BDCZMH AS BDCZH,A.LIFECYCLE,A.DJRQ,N'异议' AS YWLX,B.TSTYBM FROM DJ_YY A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH WHERE A.SLBH IN(SELECT FSLBH FROM DJ_XGDJGL WHERE ZSLBH = '" + slbh + "') ";
+      XJSql += " SELECT DISTINCT A.SLBH,N'异议登记' AS DJLX,B.BDCDYH,A.BDCZMH AS BDCZH,A.LIFECYCLE,A.DJRQ,N'异议' AS YWLX,B.TSTYBM FROM DJ_YY A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH WHERE A.SLBH IN(SELECT ZSLBH FROM DJ_XGDJGL WHERE FSLBH = '" + slbh + "') ";
+    }
+    let config = {
+      headers: {"Content-Type": "application/json"},
+    };
+    var DQSJXJ =
+        {
+          DQquery: DQSql,
+          SJquery: SJSql,
+          XJquery: XJSql,
+
+        }
+    axios.post("http://127.0.0.1:8079/test/sqls", DQSJXJ, config).then((res) => {
+      console.log("dangqina", res.data)
+      var DQData = res.data.DQquery;
+      var SJData = res.data.SJquery;
+      var XJData = res.data.XJquery;
+      var max = DQData.length;
+      if (SJData.length > max) {
+        max = SJData.length;
+      } else if (XJData.length > max) {
+        max = XJData.length;
+      }
+      //当前信息start
+      if (DQData.length > 0) {
+        for (var i = 0; i < DQData.length; i++) {
+
+        }
+      }
+      //当前信息end
+
+    })
+    //上级信息start
+    //上级信息end
+    //下级信息start
+    //下级信息end
+  }
+
+  function Format(sVal) {
+    if (sVal == null || sVal + "" == "null" || typeof (sVal) == "undefined") {
+      return "";
+    } else {
+      return "" + sVal;
+    }
+  }
 }
+
 const query = () => {
 
   setTimeout(() => {
@@ -160,7 +299,6 @@ const query = () => {
               if (row.cells[j].innerHTML == e.target.innerHTML) {
                 tstybmdata.value = datas[i].TSTYBM;
                 loadTreeInfo(tstybmdata.value); //点击调用loadTreeInfo函数加载树结构信息
-
               }
             }
           }
@@ -196,6 +334,7 @@ const query = () => {
 
           console.log("treeSqlsDate1", res.data.data)
           var zs = treeSqlsDate.loadCCIE;
+          console.log("zszs", zs)
           if (zs != null) {
             var treedata = [];
             for (var i = 0; i < zs.length; i++) {
@@ -223,7 +362,6 @@ const query = () => {
               }
               ArrQZXX[i] = sKeyName;
               zsxx[i] = zsDQXX;
-              console.log("zsxx", zsDQXX);
 
             }
 
@@ -247,11 +385,9 @@ const query = () => {
                   zxyy: "SELECT XGZH,SLBH FROM DJ_XGDJZX WHERE SLBH IN(SELECT ZSLBH FROM DJ_XGDJGL WHERE FSLBH IN(SELECT SLBH FROM DJ_YY WHERE SLBH IN (SELECT ZSLBH FROM DJ_XGDJGL WHERE FSLBH = '" + ArrKey[0] + "')))"
                 };
                 axios.post("http://127.0.0.1:8079/test/sqls", xzdjxx, config).then((res) => {
-                      console.log("xzdjxx", res.data.data)
                       var resXzDjXx = res.data.data;
                       //注销信息
                       var zx = resXzDjXx.zx;
-                      console.log("zxzx", zx)
                       if (zx.length > 0) {
                         for (var j = 0; j < zx.length; j++) {
                           var zxSlbh = Format(zx[j].SLBH);
@@ -370,7 +506,6 @@ const query = () => {
               let child = [];
               var ArrDYCFXX = new Array();
               axios.post("http://127.0.0.1:8079/test/sqls", dycfxxSqls, config).then((res) => {
-                    console.log("加载按单元查封信息", res.data.data)
                     var resdycfxx = res.data.data.dycfxx;
                     if (resdycfxx.length > 0) {
                       for (var j = 0; j < resdycfxx.length; j++) {
@@ -396,7 +531,6 @@ const query = () => {
                     }
 
                     //加载按单元查封注销信息 KFQFCCF201812030020
-                    console.log("ArrDYCFXX", ArrDYCFXX)
                     for (var j = 0; j < ArrDYCFXX.length; j++) {
                       var dycfxx = Format(ArrDYCFXX[j]);
                       if (dycfxx != "") {
@@ -405,7 +539,6 @@ const query = () => {
                           dycfzx: "SELECT Nvl(A.XGZH,B.XGZH) AS XGZH,SLBH FROM DJ_XGDJZX A LEFT JOIN DJ_XGDJGL B ON A.SLBH = B.ZSLBH WHERE B.FSLBH = '" + dycfSLBH_TSTYBM[0] + "' AND ROWNUM < 2",
                         }
                         axios.post("http://127.0.0.1:8079/test/sqls", dycfzxSqls, config).then((res) => {
-                          console.log("dyzfzx", res.data.data.dycfzx)
                           var resdycfzx = res.data.data.dycfzx;
                           if (resdycfzx.length > 0) {
                             for (var n = 0; n < resdycfzx.length; n++) {
@@ -424,7 +557,7 @@ const query = () => {
                         })
                       }
                     }
-                    console.log("按单元查封信息", getTreeNode("按单元查封信息", null, null, child))
+                    console.log("按单元查封信息TREE", getTreeNode("按单元查封信息", null, null, child))
                     treedata.push(getTreeNode("按单元查封信息", null, null, child));
                   }
               )
@@ -487,27 +620,31 @@ const query = () => {
 
                   }
                 }
-                console.log("按单元抵押信息", getTreeNode("按单元抵押信息", null, null, child))
+                console.log("按单元抵押信息TREE", getTreeNode("按单元抵押信息", null, null, child))
                 treedata.push(getTreeNode("按单元抵押信息", null, null, child));
               })
             }
 
-            console.log("ArrQZXX", ArrQZXX)
 
             treeData.value = treedata
             setTimeout(() => {
               zsdialogVisible.value = true;
+              setTimeout(() => {
+                dialogjson()
+              })
+
             }, 1000);
 
           }
         }
     )
 
+
   }
 
 //查询续查封信息
-  function treeZS_OnClick() {
-
+  function treeZS_OnClick(nodeText) {
+    console.log("树11", nodeText)
   }
 
   function getTreeNode(NodeName, SLBH, TSTYBM, children) {
@@ -546,6 +683,7 @@ const query = () => {
 
 onMounted(() => {
   zs();
+
   // fromname();
   query();
 })
