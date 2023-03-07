@@ -8,7 +8,7 @@
       <!--    <el-dialog v-model="zsdialogVisible" title="不动产追溯" :width="dialogwidth" :before-close="dialogVisible = false"-->
       <!--               class="ywdialog" style="margin-left: 400px;width: 1200px;">-->
       <!--追溯详细信息-->
-      <div style="display:flex;flex-direction:column;width: 200px;float: left">
+      <div style="display:flex;flex-direction:column;width: 300px;height:100%;float: left;overflow: auto">
         <el-tree :data="treeData" :props="defaultProps" @node-click="handleNodeClick">
           <template #default="{ data }">
             <span :class="data.icon" :style="data.style"></span>
@@ -16,7 +16,7 @@
           </template>
         </el-tree>
       </div>
-      <div style="display:flex;width:900px;float: left;z-index: 2">
+      <div style="display:flex;width:70%;height:200px;float: left;z-index: 2;overflow: auto;border: 1px solid #3f3737">
         <!--空白页-->
         <!--        <v-form-render :form-json="formJson1" :form-data="formData1" :option-data="optionData1" ref="vFormRef2">-->
 
@@ -34,7 +34,7 @@
 </template>
 <script setup>
 import {onMounted, reactive, ref} from "vue";
-import zsjson from '../../json/新追溯/追溯_主页.json';
+import zsjson from '../../json/新追溯/zs_index.json';
 import ji from '../../json/新追溯/追溯_上下级.json';
 
 const formJson = reactive({});
@@ -164,9 +164,10 @@ const handleNodeClick = (data) => {
       if (DQData.length > 0) {
         var DQInfo = "";
         var secColumn = document.getElementsByClassName("dq")[0];
-        secColumn.style = "font-size:12px;background-color:#D7FFD7;text-align:left;color:#000000";
+        secColumn.style = "font-size:10px;text-align:left;color:#000000";
         console.log("secsec", secColumn);
         for (var i = 0; i < DQData.length; i++) {
+
           DQInfo += Format(DQData[i].SLBH) + "<br>" + Format(DQData[i].DJLX) + "<br>" + Format(DQData[i].BDCDYH) + "<br>" + Format(DQData[i].BDCZH) + "<br>";
           if (type != "注销") {
             if (Format(DQData[i].LIFECYCLE) == "1") {
@@ -179,6 +180,7 @@ const handleNodeClick = (data) => {
             DQInfo += "<hr>";
 
           }
+          //TODO slbh tstybm ywlx 没存
 
         }
         secColumn.innerHTML = DQInfo;
@@ -188,10 +190,12 @@ const handleNodeClick = (data) => {
       if (SJData.length > 0) {
         var SJInfo = "";
         var firColumn = document.getElementsByClassName("sj")[0];
-        firColumn.style = "font-size:12px;text-align:left;color:#000000";
+        firColumn.style = "font-size:10px;text-align:left;color:#000000";
 
         console.log("firColumn", firColumn);
         for (var i = 0; i < SJData.length; i++) {
+
+
           SJInfo += Format(SJData[i].SLBH) + "<br>" + Format(SJData[i].DJLX) + "<br>" + Format(SJData[i].BDCDYH) + "<br>" + Format(SJData[i].BDCZH) + "<br>";
 
           if (Format(SJData[i].LIFECYCLE) == "1") {
@@ -202,6 +206,9 @@ const handleNodeClick = (data) => {
             SJInfo += "状态: 现实 ";
           }
           SJInfo += "<hr>";
+
+          //TODO slbh tstybm ywlx 没存
+
         }
 
         firColumn.innerHTML = SJInfo;
@@ -211,10 +218,12 @@ const handleNodeClick = (data) => {
       if (XJData.length > 0) {
         var XJInfo = "";
         var thiColumn = document.getElementsByClassName("xj")[0];
-        thiColumn.style = "font-size:12px;text-align:left;color:#000000";
+        thiColumn.style = "font-size:10px;text-align:left;color:#000000";
 
         console.log("thiColumn", thiColumn);
         for (var i = 0; i < XJData.length; i++) {
+
+
           XJInfo += Format(XJData[i].SLBH) + "<br>" + Format(XJData[i].DJLX) + "<br>" + Format(XJData[i].BDCDYH) + "<br>" + Format(XJData[i].BDCZH) + "<br>";
 
           if (Format(XJData[i].LIFECYCLE) == "1") {
@@ -225,6 +234,8 @@ const handleNodeClick = (data) => {
             XJInfo += "状态: 现实 ";
           }
           XJInfo += "<hr>";
+          //TODO slbh tstybm ywlx 没存
+
         }
         console.log("xiaji_INFO", XJInfo)
         thiColumn.innerHTML = XJInfo;
@@ -512,7 +523,7 @@ const query = () => {
                       var zxcf = resXzDjXx.zxcf;
                       if (zxcf.length > 0) {
                         for (var j = 0; j < zxcf.length; j++) {
-                          var zxcfSlbh = Format(zxcf[j].ZLBH);
+                          var zxcfSlbh = Format(zxcf[j].SLBH);
 
                           var zxcfZH = Format(zxcf[j].XGZH);
                           if (zxcfZH == "" || zxcfZH == null) {
@@ -525,7 +536,7 @@ const query = () => {
                       var yy = resXzDjXx.yy;
                       if (yy.length > 0) {
                         for (var j = 0; j < yy.length; j++) {
-                          var yyName = "异议-" + Format(yy[j].BDCDYH);
+                          var yyName = "异议-" + Format(yy[j].BDCZMH);
                           if (Format(yy[j].LIFECYCLE) == "1") {
                             yyName += "(历史)";
                           } else if (Format(yy[j].DJRQ) == "") {
@@ -533,7 +544,7 @@ const query = () => {
                           } else {
                             yyName += "(现实)";
                           }
-                          child.push(getTreeChildrenNode(yyName), Format(yy[j].SLBH), ArrKey[1]);
+                          child.push(getTreeChildrenNode(yyName, Format(yy[j].SLBH), ArrKey[1]));
 
                         }
 
@@ -558,6 +569,8 @@ const query = () => {
               console.log("tree", getTreeNode(zsxx[i], ArrKey[0], ArrKey[1], child))
               treedata.push(getTreeNode(zsxx[i], ArrKey[0], ArrKey[1], child))
             }
+            console.log("tree22", treedata)
+
             //加载限制性登记信息 end
 
             //加载按单元查封信息   KFQFCCF201810120002

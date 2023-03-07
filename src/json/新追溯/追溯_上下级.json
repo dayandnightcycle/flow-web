@@ -39,7 +39,9 @@
                 "cellHeight": "10px",
                 "colspan": 4,
                 "rowspan": 1,
-                "customClass": []
+                "customClass": [
+                  "wid"
+                ]
               },
               "id": "table-cell-68007"
             },
@@ -125,7 +127,9 @@
                 "cellHeight": "",
                 "colspan": 4,
                 "rowspan": 1,
-                "customClass": ""
+                "customClass": [
+                  "wid"
+                ]
               },
               "id": "table-cell-101240"
             },
@@ -211,7 +215,9 @@
                 "cellHeight": "",
                 "colspan": 4,
                 "rowspan": 1,
-                "customClass": ""
+                "customClass": [
+                  "wid"
+                ]
               },
               "id": "table-cell-97604"
             },
@@ -300,7 +306,8 @@
                 "colspan": 2,
                 "rowspan": 1,
                 "customClass": [
-                  "sj"
+                  "sj",
+                  "wid"
                 ]
               },
               "id": "table-cell-29331"
@@ -336,7 +343,8 @@
                 "colspan": 2,
                 "rowspan": 1,
                 "customClass": [
-                  "dq"
+                  "dq",
+                  "wid"
                 ]
               },
               "id": "table-cell-112015"
@@ -372,7 +380,8 @@
                 "colspan": 2,
                 "rowspan": 1,
                 "customClass": [
-                  "xj"
+                  "xj",
+                  "wid"
                 ]
               },
               "id": "table-cell-91541"
@@ -417,15 +426,15 @@
     "labelPosition": "left",
     "size": "",
     "labelAlign": "label-center-align",
-    "cssCode": ".dq{\n  \n}\n.sj{\n  \n}\n.xj{\n  \n}",
-    "customClass": "",
+    "cssCode": ".dq{\n  \n}\n.sj{\n  \n}\n.xj{\n  \n}\n.wid{\n  width: 33%;\n}",
+    "customClass": [],
     "functions": "",
     "layoutType": "PC",
     "jsonVersion": 3,
+    "dataSources": [],
     "onFormCreated": "",
     "onFormMounted": "",
     "onFormDataChange": "",
-    "dataSources": [],
     "onFormValidate": ""
   }
 }
