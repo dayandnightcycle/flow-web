@@ -2,32 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Title</title>
     <style>
-        .a {
-            visibility: visible;
-            display: block;
+        td {
+            border: 1px solid black;
+        }
+
+        .t {
+
+
         }
     </style>
+
 </head>
 <body>
-<script>
-    var dog = {
-        name: '可可',
-        type: '阿拉斯加',
-        age: 5,
-        color: '棕红色',
-        barkKill: function () {
-            console.log('汪汪汪');
-        },
-        showKill: function () {
-            console.log('演电影');
-        },
+<p class="t">pppppp</p>
+<table>
+    <tr>
+        <!--        <a href="javascript:testHref(2);">-->
 
-    };
-    console.log("dog", dog)
+        <td class="t"><a>11sdfasdf</a></td>
+
+        <td></td>
+        <td>13</td>
+    </tr>
+</table>
+
+<script>
+    var table = document.getElementsByTagName("table")[0]
+    console.log("table", table)
+    var tbody = table.children[0];
+    console.log("tbody", tbody)
+    var tr1 = tbody.children[0]
+
+    var td11 = tr1.children[0]
+    var td12 = tr1.children[1]
+    var td13 = tr1.children[2]
+    var a1 = document.createElement('a');
+    td12.appendChild(a1)
+    var a2 = document.createElement('a');
+
+    td13.appendChild(a2)
+
+    td12.children[0].innerHTML = "555";
+    console.log("td12", td12)
+    console.log("td13", td13)
+    tr1.removeChild(tr1.children[2])
+    var aa = td11.children[0]
+    // aa.setAttribute("slbh", "11111")
+    // aa.setAttribute("tstybm", "22222")
+    // aa.setAttribute("ywlx", "发证")
+    var slbh = 111;
+    var ywlx = "权证"
+    aa.setAttribute("href", "javascript:testHref(slbh,ywlx)")
+    console.log("aa", aa)
+
+    function testHref(num, ywlx) {
+        alert("这是a标签的href函数" + num + ywlx);
+    }
+
+    for (var i = 0; i < 5; i++) {
+        var j
+        +i;
+        console.log("i", i)
+    }
+
+    // var tr1 = document.getElementsByTagName("tr")[0]
+
 </script>
 
 </body>

@@ -1,25 +1,24 @@
 console.log("slbh_treeNode", data.slbh)
 console.log("text_treeNode", data.label)
+window._this = this;
+_this.getFormRef('input79332').setFieldValue('input79332', "asd");
 //获取当前上下级行
 var table = document.getElementsByClassName("sdx")[1]
 var tbody = table.children[0];
 var tr = tbody.children[1];
 
-console.log("tr", tr)
-console.log("tbody.children.length", tbody.children.length)
-if (tbody.children.length > 2) {
-    for (let i = tbody.children.length - 1; i > 1; i--) {
-        tbody.removeChild(tbody.children[i])
-        console.log("tbody.children[i]", i, "-", tbody.children[i])
-    }
-}
-tr.children[1].innerHTML = ''
-tr.children[2].innerHTML = ''
-tr.children[3].innerHTML = ''
+
 let label = data.label;
 let slbh = data.slbh;
-let ywlx = "";
-let syt;// 二维数组存储slbh ywlx tstybm
+
+window.sj_slbh = "";
+window.sj_ywlx = "";
+window.dq_slbh = "";
+window.dq_ywlx = "";
+window.xj_slbh = "";
+window.xj_ywlx = "";
+
+
 if (Format(label) != "") {
     if (label.indexOf("楼盘-") != -1) {
         showLPBInfo(slbh);
@@ -41,6 +40,21 @@ if (Format(label) != "") {
 }
 
 function showZSData(slbh, type) {
+    //清除上次展示的数据start
+
+    var table = document.getElementsByClassName("sdx")[1]
+    var tbody = table.children[0];
+    var tr = tbody.children[1];
+    if (tbody.children.length > 2) {
+        for (let i = tbody.children.length - 1; i > 1; i--) {
+            tbody.removeChild(tbody.children[i])
+            console.log("tbody.children[i]", i, "-", tbody.children[i])
+        }
+    }
+    tr.children[1].innerHTML = ''
+    tr.children[2].innerHTML = ''
+    tr.children[3].innerHTML = ''
+    //清除上次展示的数据end
     var DQSql = "";
     var SJSql = "";
     var XJSql = "";
@@ -95,7 +109,8 @@ function showZSData(slbh, type) {
             XJquery: XJSql,
 
         }
-    axios.post("http://127.0.0.1:8079/test/sqls", DQSJXJ, config).then((res) => {
+    axios.post("http://192.168.3.48:8079/test/sqls", DQSJXJ, config).then((res) => {
+        console.log("DQSJXJSql", DQSJXJ)
         console.log("DQSJXJ", res.data)
         var DQData = res.data.data.DQquery;
         var SJData = res.data.data.SJquery;
@@ -124,9 +139,11 @@ function showZSData(slbh, type) {
                 tbody.appendChild(ztr);
             }
         }
+
         console.log("max", max);
         //当前信息start
         if (DQData.length > 0) {
+
             for (var i = 0; i < DQData.length; i++) {
                 var DQInfo = "";
                 var XGZH = "";
@@ -138,18 +155,31 @@ function showZSData(slbh, type) {
                     if (Format(DQData[i].LIFECYCLE) == "1") {
                         DQInfo += "状态: 历史 ";
                     } else if (Format(DQData[i].DJRQ) == "") {
+
                         DQInfo += "状态: 办理中 ";
+
+
                     } else {
                         DQInfo += "状态: 现实 ";
                     }
+
+
                 }
                 //TODO slbh tstybm ywlx 没存
                 var tr = tbody.children[i + 1];
                 var td = tr.children[2];
-                td.innerHTML = "";
-                td.innerHTML = DQInfo;
+                var dqATag = document.createElement('a');
+                td.appendChild(dqATag)
+                td.children[0].innerHTML = "";
+                td.children[0].innerHTML = DQInfo
+                if (Format(DQData[i].SLBH) != "") {
+                    dq_slbh = Format(DQData[i].SLBH);
+                    console.log("dangqian---", dq_slbh)
 
-                //td.addEventListener("click", loadDJInfo(DQData[i].SLBH, "权证"));
+                    dq_ywlx = Format(DQData[i].YWLX);
+                    td.children[0].setAttribute("href", "javascript:showZSData(dq_slbh,dq_ywlx)")
+                }
+
             }
 
         }
@@ -177,8 +207,24 @@ function showZSData(slbh, type) {
                 //TODO slbh tstybm ywlx 没存
                 var tr = tbody.children[i + 1];
                 var td = tr.children[1];
-                td.innerHTML = "";
-                td.innerHTML = SJInfo
+                var sjATag = document.createElement('a');
+                td.appendChild(sjATag)
+                td.children[0].innerHTML = "";
+                td.children[0].innerHTML = SJInfo
+                if (Format(SJData[i].SLBH) != "") {
+                    sj_slbh = Format(SJData[i].SLBH);
+                    console.log("shangji---", sj_slbh)
+                    sj_ywlx = Format(SJData[i].YWLX)
+                    console.log("shangji22---", sj_ywlx)
+
+                    td.children[0].setAttribute("href", "javascript:showZSData(sj_slbh,sj_ywlx)")
+                }
+                //TODO 后续加
+                // if(sTSTYBM != ""){
+                //     if(m_sDQTSTYBM != sTSTYBM){
+                //         LoadTreeInfo(sTSTYBM);
+                //     }
+                // }
             }
 
         }
@@ -204,10 +250,19 @@ function showZSData(slbh, type) {
 
                 //TODO slbh tstybm ywlx 没存
                 var tr = tbody.children[i + 1];
-                console.log("xtd", tr);
                 var td = tr.children[3];
-                td.innerHTML = "";
-                td.innerHTML = XJInfo
+                var xjATag = document.createElement('a');
+                td.appendChild(xjATag)
+                td.children[0].innerHTML = "";
+                td.children[0].innerHTML = XJInfo
+                if (Format(XJData[i].SLBH) != "") {
+                    xj_slbh = Format(XJData[i].SLBH);
+                    console.log("xiaji---", xj_slbh)
+
+                    xj_ywlx = Format(XJData[i].YWLX)
+
+                    td.children[0].setAttribute("href", "javascript:showZSData(xj_slbh,xj_ywlx)")
+                }
             }
 
         }
@@ -216,13 +271,6 @@ function showZSData(slbh, type) {
 
 }
 
-function loadDJInfo(slbh, ywlx) {
-    if (ywlx == "权证") {
-        ywlx = "证书";
-    }
-    console.log("ywlx", ywlx);
-
-}
 
 function Format(sVal) {
     if (sVal == null || sVal + "" == "null" || typeof (sVal) == "undefined") {
@@ -231,3 +279,61 @@ function Format(sVal) {
         return "" + sVal;
     }
 }
+
+// function loadDJInfo(slbh, ywlx) {
+//     if (ywlx == "权证") {
+//         ywlx = "证书";
+//     }
+//     console.log("ywlx", ywlx);
+// }
+
+var dangqian = tbody.children[1];
+var dangqiantd = dangqian.children[2];
+console.log("dangqian", dangqiantd.innerHTML)
+
+async function loadDJInfo() {
+    //加载表单
+    var tabDatas = {
+        "sjd": "select SLBH, LCLX, LCMC, SJR, SJSJ, CNSJ, QXDM, TZRXM, TZFS, TZRDH, TZRYDDH, TZRDZYJ, TZRTXDZ, CXMM, SJMC, SJLX, SJSL, YS, SFSYBZ, SFEWSJ, SFBCSJ, ZRKS, ZRR, YXJ, SJBZ, BCSM, FCSLH, FCDJLX, FCHID,ZL from DJ_SJD where SLBH = '" + slbh + "'",
+        "djb": "select SLBH, DJLX, DJYY, SQZSBS, SQFBCZ, SQRQ, SQNR, SQBZ, DLJGMC, DLRXM, DLRZJLX, DLRZJH, DLRZGZH, DLRDH, DLJGMC2, DLRXM2, DLRZJLX2, DLRZJH2, DLRZGZH2, DLRDH2, SPDW, SPRQ, SPBZ, BDCZH, SSJC, JGJC, FZND, ZSH, SZR, GYFS, GYFE, DJRQ, DBR, ZSR, FZJG, FZRQ, ZSLX, ZSXLH, DYCS, GDH, DAMJ, QT, FJ, XGZH, BDCDYH, LIFECYCLE from DJ_DJB where SLBH = '" + slbh + "'"
+    }
+    console.log("tabSqls", tabDatas)
+    let config = {
+        headers: {"Content-Type": "application/json"},
+    };
+
+
+    await axios.post("http://192.168.3.48:8079/test/sqls", tabDatas, config).then((res) => {
+        console.log("tabDatas", res.data.data);
+
+        let sjdData = res.data.data.sjd[0];
+        let djbData = res.data.data.djb[0];
+        //  window._this = this;
+        _this.getFormRef('fwzs_input_slbh').setFieldValue('fwzs_input_slbh', sjdData.SLBH);
+        _this.getFormRef('fwzs_input_sjsj').setFieldValue('fwzs_input_sjsj', sjdData.SJSJ);
+        _this.getFormRef('fwzs_input_djlx').setFieldValue('fwzs_input_djlx', djbData.DJLX);
+        _this.getFormRef('fwzs_input_djyy').setFieldValue('fwzs_input_djyy', djbData.DJYY);
+        _this.getFormRef('fwzs_input_sjr').setFieldValue('fwzs_input_sjr', sjdData.SJR);
+        _this.getFormRef('fwzs_input_ywlx').setFieldValue('fwzs_input_ywlx', sjdData.LCMC);
+        _this.getFormRef('fwzs_input_xgzj').setFieldValue('fwzs_input_xgzj', djbData.XGZH);
+        _this.getFormRef('fwzs_input_sqrq').setFieldValue('fwzs_input_sqrq', djbData.SQRQ);
+        _this.getFormRef('fwzs_input_cnsj').setFieldValue('fwzs_input_cnsj', sjdData.CNSJ);
+        _this.getFormRef('fwzs_input_ssxq').setFieldValue('fwzs_input_ssxq', sjdData.QXDM);//字典
+        _this.getFormRef('fwzs_input_txdz').setFieldValue('fwzs_input_txdz', sjdData.TZRTXDZ);
+        _this.getFormRef('fwzs_input_gyfs').setFieldValue('fwzs_input_gyfs', djbData.GYFS);//字典
+        _this.getFormRef('fwzs_input_dlrxm').setFieldValue('fwzs_input_dlrxm', djbData.DLRXM);
+        _this.getFormRef('fwzs_input_dlrzyzgzh').setFieldValue('fwzs_input_dlrzyzgzh', djbData.DLRZGZH);
+        _this.getFormRef('fwzs_input_dlrzjzl').setFieldValue('fwzs_input_dlrzjzl', djbData.DLRZJLX);
+        _this.getFormRef('fwzs_input_dlrzjbh').setFieldValue('fwzs_input_dlrzjbh', djbData.DLRZJH);
+        _this.getFormRef('fwzs_input_dlrlxdh').setFieldValue('fwzs_input_dlrlxdh', djbData.DLRDH);
+        _this.getFormRef('fwzs_input_dljgmc').setFieldValue('fwzs_input_dljgmc', djbData.DLJGMC);
+        // _this.getFormRef('fwzs_input_').setFieldValue('fwzs_input_',);
+
+
+    })
+
+}
+
+loadDJInfo();
+
+

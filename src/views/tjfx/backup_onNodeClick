@@ -1,5 +1,7 @@
 console.log("slbh_treeNode", data.slbh)
 console.log("text_treeNode", data.label)
+window._this = this;
+_this.getFormRef('input79332').setFieldValue('input79332', "asd");
 //获取当前上下级行
 var table = document.getElementsByClassName("sdx")[1]
 var tbody = table.children[0];
@@ -45,9 +47,9 @@ function showZSData(slbh, type) {
     var SJSql = "";
     var XJSql = "";
     if (type == "解封") {
-        DQSql = "SELECT DISTINCT A.SLBH,Nvl(A.DJLX,'解封登记') AS DJLX,B.BDCDYH,Nvl(C.XGZH,A.XGZH),N'解封' AS YWLX,B.TSTYBM FROM DJ_XGDJZX A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_XGDJGL C ON A.SLBH = C.ZSLBH WHERE A.SLBH = '" + slbh + "' AND ROWNUM < 2";
+        DQSql = "SELECT DISTINCT A.SLBH,Nvl(A.DJLX,'解封登记') AS DJLX,B.BDCDYH,Nvl(C.XGZH,A.XGZH) AS XGZH,N'解封' AS YWLX,B.TSTYBM, '现' AS DJRQ FROM DJ_XGDJZX A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_XGDJGL C ON A.SLBH = C.ZSLBH WHERE A.SLBH = '" + slbh + "' AND ROWNUM < 2";
     } else if (type == "注销") {
-        DQSql = "SELECT DISTINCT A.SLBH,Nvl(A.DJLX,'注销登记') AS DJLX,B.BDCDYH,Nvl(C.XGZH,A.XGZH),N'注销' AS YWLX,B.TSTYBM FROM DJ_XGDJZX A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_XGDJGL C ON A.SLBH = C.ZSLBH WHERE A.SLBH = '" + slbh + "' AND ROWNUM < 2";
+        DQSql = "SELECT DISTINCT A.SLBH,Nvl(A.DJLX,'注销登记') AS DJLX,B.BDCDYH,Nvl(C.XGZH,A.XGZH) AS XGZH,N'注销' AS YWLX,B.TSTYBM FROM DJ_XGDJZX A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH LEFT JOIN DJ_XGDJGL C ON A.SLBH = C.ZSLBH WHERE A.SLBH = '" + slbh + "' AND ROWNUM < 2";
     } else {
         DQSql = "SELECT DISTINCT A.SLBH,A.DJLX,B.BDCDYH,A.BDCZH,A.LIFECYCLE,A.DJRQ,N'权证' AS YWLX,B.TSTYBM FROM DJ_DJB A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH WHERE A.SLBH = '" + slbh + "'";
         SJSql = "SELECT DISTINCT A.SLBH,A.DJLX,B.BDCDYH,A.BDCZH,A.LIFECYCLE,A.DJRQ,N'权证' AS YWLX,B.TSTYBM FROM DJ_DJB A LEFT JOIN DJ_TSGL B ON A.SLBH = B.SLBH WHERE A.SLBH IN(SELECT FSLBH FROM DJ_XGDJGL WHERE ZSLBH = '" + slbh + "') ";
@@ -95,18 +97,26 @@ function showZSData(slbh, type) {
             XJquery: XJSql,
 
         }
-    axios.post("http://127.0.0.1:8079/test/sqls", DQSJXJ, config).then((res) => {
+    axios.post("http://192.168.3.48:8079/test/sqls", DQSJXJ, config).then((res) => {
         console.log("DQSJXJ", res.data)
         var DQData = res.data.data.DQquery;
         var SJData = res.data.data.SJquery;
         var XJData = res.data.data.XJquery;
         var max = DQData.length;
-        if
-        (SJData.length > max) {
-            max = SJData.length;
-        } else if (XJData.length > max) {
-            max = XJData.length;
+        //   console.log("DQData.length",DQData.length);
+        //   console.log("SJData.length",SJData.length);
+        //   console.log("XJData.length",XJData.length);
+        if (XJData != null && SJData != null) {
+            if
+            (SJData.length > max) {
+                max = SJData.length;
+
+            } else if (XJData.length > max) {
+                max = XJData.length;
+
+            }
         }
+
         if (max > 1) {
             for (var i = 0; i < max - 1; i++) {
                 let table = document.getElementsByClassName("sdx")[1]
@@ -123,22 +133,31 @@ function showZSData(slbh, type) {
 
             for (var i = 0; i < DQData.length; i++) {
                 var DQInfo = "";
-                DQInfo += Format(DQData[i].SLBH) + "<br>" + Format(DQData[i].DJLX) + "<br>" + Format(DQData[i].BDCDYH) + "<br>" + Format(DQData[i].BDCZH) + "<br>";
+                var XGZH = "";
+                if (Format(DQData[i].XGZH) != "") {
+                    XGZH = Format(DQData[i].XGZH) + "<br>";
+                }
+                DQInfo += Format(DQData[i].SLBH) + "<br>" + Format(DQData[i].DJLX) + "<br>" + Format(DQData[i].BDCDYH) + "<br>" + XGZH + Format(DQData[i].BDCZH) + "<br>";
                 if (type != "注销") {
                     if (Format(DQData[i].LIFECYCLE) == "1") {
                         DQInfo += "状态: 历史 ";
                     } else if (Format(DQData[i].DJRQ) == "") {
+
                         DQInfo += "状态: 办理中 ";
+
+
                     } else {
                         DQInfo += "状态: 现实 ";
                     }
-                }
 
+
+                }
                 //TODO slbh tstybm ywlx 没存
                 var tr = tbody.children[i + 1];
                 var td = tr.children[2];
                 td.innerHTML = "";
                 td.innerHTML = DQInfo
+                td.addEventListener("click", loadDJInfo("123", "22"));
             }
 
         }
@@ -148,8 +167,11 @@ function showZSData(slbh, type) {
 
             for (var i = 0; i < SJData.length; i++) {
                 var SJInfo = "";
-
-                SJInfo += Format(SJData[i].SLBH) + "<br>" + Format(SJData[i].DJLX) + "<br>" + Format(SJData[i].BDCDYH) + "<br>" + Format(SJData[i].BDCZH) + "<br>";
+                var XGZH = "";
+                if (Format(SJData[i].XGZH) != "") {
+                    XGZH = Format(SJData[i].XGZH) + "<br>";
+                }
+                SJInfo += Format(SJData[i].SLBH) + "<br>" + Format(SJData[i].DJLX) + "<br>" + Format(SJData[i].BDCDYH) + "<br>" + XGZH + Format(SJData[i].BDCZH) + "<br>";
 
                 if (Format(SJData[i].LIFECYCLE) == "1") {
                     SJInfo += "状态: 历史 ";
@@ -174,7 +196,11 @@ function showZSData(slbh, type) {
 
             for (var i = 0; i < XJData.length; i++) {
                 var XJInfo = "";
-                XJInfo += Format(XJData[i].SLBH) + "<br>" + Format(XJData[i].DJLX) + "<br>" + Format(XJData[i].BDCDYH) + "<br>" + Format(XJData[i].BDCZH) + "<br>";
+                var XGZH = "";
+                if (Format(XJData[i].XGZH) != "") {
+                    XGZH = Format(XJData[i].XGZH) + "<br>";
+                }
+                XJInfo += Format(XJData[i].SLBH) + "<br>" + Format(XJData[i].DJLX) + "<br>" + Format(XJData[i].BDCDYH) + "<br>" + XGZH + Format(XJData[i].BDCZH) + "<br>";
 
                 if (Format(XJData[i].LIFECYCLE) == "1") {
                     XJInfo += "状态: 历史 ";
@@ -198,6 +224,7 @@ function showZSData(slbh, type) {
 
 }
 
+
 function Format(sVal) {
     if (sVal == null || sVal + "" == "null" || typeof (sVal) == "undefined") {
         return "";
@@ -205,3 +232,61 @@ function Format(sVal) {
         return "" + sVal;
     }
 }
+
+// function loadDJInfo(slbh, ywlx) {
+//     if (ywlx == "权证") {
+//         ywlx = "证书";
+//     }
+//     console.log("ywlx", ywlx);
+// }
+
+var dangqian = tbody.children[1];
+var dangqiantd = dangqian.children[2];
+console.log("dangqian", dangqiantd.innerHTML)
+
+async function loadDJInfo() {
+    //加载表单
+    var tabDatas = {
+        "sjd": "select SLBH, LCLX, LCMC, SJR, SJSJ, CNSJ, QXDM, TZRXM, TZFS, TZRDH, TZRYDDH, TZRDZYJ, TZRTXDZ, CXMM, SJMC, SJLX, SJSL, YS, SFSYBZ, SFEWSJ, SFBCSJ, ZRKS, ZRR, YXJ, SJBZ, BCSM, FCSLH, FCDJLX, FCHID,ZL from DJ_SJD where SLBH = '" + slbh + "'",
+        "djb": "select SLBH, DJLX, DJYY, SQZSBS, SQFBCZ, SQRQ, SQNR, SQBZ, DLJGMC, DLRXM, DLRZJLX, DLRZJH, DLRZGZH, DLRDH, DLJGMC2, DLRXM2, DLRZJLX2, DLRZJH2, DLRZGZH2, DLRDH2, SPDW, SPRQ, SPBZ, BDCZH, SSJC, JGJC, FZND, ZSH, SZR, GYFS, GYFE, DJRQ, DBR, ZSR, FZJG, FZRQ, ZSLX, ZSXLH, DYCS, GDH, DAMJ, QT, FJ, XGZH, BDCDYH, LIFECYCLE from DJ_DJB where SLBH = '" + slbh + "'"
+    }
+    console.log("tabSqls", tabDatas)
+    let config = {
+        headers: {"Content-Type": "application/json"},
+    };
+
+
+    await axios.post("http://192.168.3.48:8079/test/sqls", tabDatas, config).then((res) => {
+        console.log("tabDatas", res.data.data);
+
+        let sjdData = res.data.data.sjd[0];
+        let djbData = res.data.data.djb[0];
+        //  window._this = this;
+        _this.getFormRef('fwzs_input_slbh').setFieldValue('fwzs_input_slbh', sjdData.SLBH);
+        _this.getFormRef('fwzs_input_sjsj').setFieldValue('fwzs_input_sjsj', sjdData.SJSJ);
+        _this.getFormRef('fwzs_input_djlx').setFieldValue('fwzs_input_djlx', djbData.DJLX);
+        _this.getFormRef('fwzs_input_djyy').setFieldValue('fwzs_input_djyy', djbData.DJYY);
+        _this.getFormRef('fwzs_input_sjr').setFieldValue('fwzs_input_sjr', sjdData.SJR);
+        _this.getFormRef('fwzs_input_ywlx').setFieldValue('fwzs_input_ywlx', sjdData.LCMC);
+        _this.getFormRef('fwzs_input_xgzj').setFieldValue('fwzs_input_xgzj', djbData.XGZH);
+        _this.getFormRef('fwzs_input_sqrq').setFieldValue('fwzs_input_sqrq', djbData.SQRQ);
+        _this.getFormRef('fwzs_input_cnsj').setFieldValue('fwzs_input_cnsj', sjdData.CNSJ);
+        _this.getFormRef('fwzs_input_ssxq').setFieldValue('fwzs_input_ssxq', sjdData.QXDM);//字典
+        _this.getFormRef('fwzs_input_txdz').setFieldValue('fwzs_input_txdz', sjdData.TZRTXDZ);
+        _this.getFormRef('fwzs_input_gyfs').setFieldValue('fwzs_input_gyfs', djbData.GYFS);//字典
+        _this.getFormRef('fwzs_input_dlrxm').setFieldValue('fwzs_input_dlrxm', djbData.DLRXM);
+        _this.getFormRef('fwzs_input_dlrzyzgzh').setFieldValue('fwzs_input_dlrzyzgzh', djbData.DLRZGZH);
+        _this.getFormRef('fwzs_input_dlrzjzl').setFieldValue('fwzs_input_dlrzjzl', djbData.DLRZJLX);
+        _this.getFormRef('fwzs_input_dlrzjbh').setFieldValue('fwzs_input_dlrzjbh', djbData.DLRZJH);
+        _this.getFormRef('fwzs_input_dlrlxdh').setFieldValue('fwzs_input_dlrlxdh', djbData.DLRDH);
+        _this.getFormRef('fwzs_input_dljgmc').setFieldValue('fwzs_input_dljgmc', djbData.DLJGMC);
+        // _this.getFormRef('fwzs_input_').setFieldValue('fwzs_input_',);
+
+
+    })
+
+}
+
+loadDJInfo();
+
+
